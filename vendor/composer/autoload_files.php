@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '45e8c92354af155465588409ef796dbc' => $vendorDir . '/bcosca/fatfree/lib/base.php',
-    '982f3a8b96a38b90417e93c53ba02dac' => $baseDir . '/Helpers.php',
+    '2dcc1fe700145c8f64875eb0ae323e56' => $baseDir . '/helpers.php',
 );

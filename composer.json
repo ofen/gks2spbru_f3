@@ -3,6 +3,6 @@
         "bcosca/fatfree": "^3.6"
     },
     "autoload": {
-        "files": ["Helpers.php"]
+        "files": ["helpers.php"]
     }
 }

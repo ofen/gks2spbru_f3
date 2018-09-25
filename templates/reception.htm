@@ -34,8 +34,12 @@
         <textarea name="body" class="form-control" id="body" rows="3" placeholder="Введите текст сообщения"></textarea>
     </div>
     <!-- Field -->
-    <div class="form-group">
-        <input type="file" name="attachment" class="form-control">
+    <div class="input-group">
+        <label class="input-group-btn">
+            <span class="btn btn-primary">Выберите файл</span>
+            <input type="file" name="attachment" class="hidden">
+        </label>
+        <input type="text" class="form-control" id="file-info" placeholder="Файл не выбран" disabled>
     </div>
     <!-- Button -->
     <button type="submit" class="btn btn-primary">Отправить</button>

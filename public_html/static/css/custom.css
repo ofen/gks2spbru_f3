@@ -62,3 +62,7 @@ body {
 .navbar {
     border-radius: 0;
 }
+
+.input-group {
+    margin-bottom: 15px;
+}
