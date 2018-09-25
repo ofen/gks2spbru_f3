@@ -18,19 +18,19 @@
             <img class="desktop" src="/static/img/desktop_logo.png">
         </div>
         <!-- Navigation -->
-        <?php echo $this->render('../templates/navigation-bar.htm',NULL,get_defined_vars(),0); ?>
+        <?php echo $this->render('navigation-bar.htm',NULL,get_defined_vars(),0); ?>
         <!-- Content -->
         <div class="container-fluid">
-
-               <!--  <div class="alert alert-seccess alert-dismissible" role="alert">
+            <?php if (array_pop($SESSION['message']) == 'success'): ?>
+                <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     Вы успешно отправили сообщение!
-                </div> -->
-
+                </div>
+            <?php endif; ?>
             <div class="content">
-                <?php echo $this->render('../templates/'.$content,NULL,get_defined_vars(),0); ?>
+                <?php echo $this->render($content,NULL,get_defined_vars(),0); ?>
             </div>
         </div>
         <!-- Footer -->

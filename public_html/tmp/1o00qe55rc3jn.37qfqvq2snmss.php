@@ -13,29 +13,29 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <repeat group="{{ @navbar }}" key="{{ @key }}" value="{{ @value }}">
-                <check if="{{ is_array(@value) }}">
-                    <true>
+            <?php foreach (($navbar?:[]) as $key=>$value): ?>
+                <?php if (is_array($value)): ?>
+                    
                     <!-- Item-->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ @key }}<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= ($key) ?><span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <repeat group="{{ @value }}" key="{{ @submenu }}" value="{{ @sublink }}">
-                                <li {{ isActive(@PATH, @sublink) }}>
-                                    <a href="{{ @sublink }}">{{ @submenu }}</a>
+                            <?php foreach (($value?:[]) as $submenu=>$sublink): ?>
+                                <li <?= (isActive($PATH, $sublink)) ?>>
+                                    <a href="<?= ($sublink) ?>"><?= ($submenu) ?></a>
                                 </li>
-                            </repeat>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
-                    </true>
-                    <false>
+                    
+                    <?php else: ?>
                     <!-- Item-->
-                    <li {{ isActive(@PATH, @value) }}>
-                        <a href="{{ @value }}">{{ @key }}</a>
+                    <li <?= (isActive($PATH, $value)) ?>>
+                        <a href="<?= ($value) ?>"><?= ($key) ?></a>
                     </li>
-                    </false>
-                </check>
-            </repeat>
+                    
+                <?php endif; ?>
+            <?php endforeach; ?>
         </ul>
     </div>
 </nav>

@@ -18,25 +18,25 @@
             <img class="desktop" src="/static/img/desktop_logo.png">
         </div>
         <!-- Navigation -->
-        <include href="../templates/navigation-bar.htm" />
+        <include href="navigation-bar.htm" />
         <!-- Content -->
         <div class="container-fluid">
-
-               <!--  <div class="alert alert-seccess alert-dismissible" role="alert">
+            <check if="{{ array_pop(@SESSION.message) == 'success' }}">
+                <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     Вы успешно отправили сообщение!
-                </div> -->
-
+                </div>
+            </check>
             <div class="content">
-                <include href="{{ '../templates/'.@content }}" />
+                <include href="{{ @content }}" />
             </div>
         </div>
         <!-- Footer -->
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid"> 
-                <p class="navbar-text">ofen {{ date('Y') }} {{ @PATH }}</p>
+                <p class="navbar-text">ofen {{ date('Y') }} {~ echo $PATH ~}</p>
             </div>
         </nav>
         <!-- jQuery and Bootstrap JS -->

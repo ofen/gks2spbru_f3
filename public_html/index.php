@@ -42,24 +42,28 @@ $f3->set('navbar', [
     'Интернет приемная' => '/reception',
 ]);
 
-$f3->route('GET @home: /', function($f3) {
-    $f3->set('content', 'index.htm');
-    echo \Template::instance()->render('../templates/layout.htm');
-});
+$f3->set('UI', '../templates/');
 
-$f3->route('GET /news', function($f3) {
-    $f3->set('content', 'news.htm');
-    echo \Template::instance()->render('../templates/layout.htm');
-});
+require '../routes.php';
 
-$f3->route('GET /about', function($f3) {
-    $f3->set('content', 'about.htm');
-    echo \Template::instance()->render('../templates/layout.htm');
-});
+// $f3->route('GET @home: /', function($f3) {
+//     $f3->set('content', 'index.htm');
+//     echo \Template::instance()->render('../templates/layout.htm');
+// });
 
-$f3->route('GET /reception', function($f3) {
-    $f3->set('content', 'reception.htm');
-    echo \Template::instance()->render('../templates/layout.htm');
-});
+// $f3->route('GET /news', function($f3) {
+//     $f3->set('content', 'news.htm');
+//     echo \Template::instance()->render('../templates/layout.htm');
+// });
+
+// $f3->route('GET /about', function($f3) {
+//     $f3->set('content', 'about.htm');
+//     echo \Template::instance()->render('../templates/layout.htm');
+// });
+
+// $f3->route('GET /reception', function($f3) {
+//     $f3->set('content', 'reception.htm');
+//     echo \Template::instance()->render('../templates/layout.htm');
+// });
 
 $f3->run();
