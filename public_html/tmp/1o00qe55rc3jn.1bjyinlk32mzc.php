@@ -21,7 +21,7 @@
         <?php echo $this->render('navigation-bar.htm',NULL,get_defined_vars(),0); ?>
         <!-- Content -->
         <div class="container-fluid">
-            <?php if (array_pop($SESSION['message']) == 'success'): ?>
+            <?php if ($SESSION['message'] && flash() == 'success'): ?>
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

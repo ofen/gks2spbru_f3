@@ -21,7 +21,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= ($key) ?><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php foreach (($value?:[]) as $submenu=>$sublink): ?>
-                                <li <?= (isActive($PATH, $sublink)) ?>>
+                                <li <?= (isActive($sublink)) ?>>
                                     <a href="<?= ($sublink) ?>"><?= ($submenu) ?></a>
                                 </li>
                             <?php endforeach; ?>
@@ -30,7 +30,7 @@
                     
                     <?php else: ?>
                     <!-- Item-->
-                    <li <?= (isActive($PATH, $value)) ?>>
+                    <li <?= (isActive($value)) ?>>
                         <a href="<?= ($value) ?>"><?= ($key) ?></a>
                     </li>
                     

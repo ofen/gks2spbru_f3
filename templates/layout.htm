@@ -21,7 +21,7 @@
         <include href="navigation-bar.htm" />
         <!-- Content -->
         <div class="container-fluid">
-            <check if="{{ array_pop(@SESSION.message) == 'success' }}">
+            <check if="{{ @SESSION.message && flash() == 'success' }}">
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
