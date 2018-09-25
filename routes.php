@@ -1,8 +1,6 @@
 <?php
 
-namespace routes;
-
-$f3->route('GET /', function($f3, $params) {
+$f3->route('GET /', function($f3) {
     $f3->set('content', 'index.htm');
     echo \Template::instance()->render('layout.htm');
 });
@@ -14,6 +12,11 @@ $f3->route('GET /news', function($f3) {
 
 $f3->route('GET /about', function($f3) {
     $f3->set('content', 'about.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /pricing', function($f3) {
+    $f3->set('content', 'pricing.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
