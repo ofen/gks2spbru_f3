@@ -4,7 +4,7 @@ $(document).on('change', ':file', function() {
     input.parent().siblings("[id^=file-info]").val(label);
 });
 
-$(document).on('click touch', '[id^=file-info]', function() {
+$(document).on('click', '[id^=file-info]', function() {
     var input = $(this);
     input.siblings('.input-group-btn').click();
 });
