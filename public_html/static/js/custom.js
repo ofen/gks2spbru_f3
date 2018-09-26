@@ -1,5 +1,10 @@
-$(document).on('change', ':file', function () {
+$(document).on('change', ':file', function() {
     var input = $(this);
     var label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.parent().siblings("#file-info").val(label);
+    input.parent().siblings("[id^=file-info]").val(label);
+});
+
+$(document).on('click', '[id^=file-info]', function() {
+    var input = $(this);
+    input.siblings('.input-group-btn').click();
 });

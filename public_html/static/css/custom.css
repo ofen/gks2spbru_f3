@@ -67,3 +67,10 @@ body {
 .input-group {
     margin-bottom: 15px;
 }
+/* Text input inside input-group */
+.input-group input[type=text] {
+    cursor: pointer;
+    outline: none;
+    box-shadow:none !important;
+    border: 1px solid #ccc !important;
+}
