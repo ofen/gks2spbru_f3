@@ -16,27 +16,19 @@
         <title>ООО "ЖКС №2 Кировского района"</title>
     </head>
     <body>
-        <!-- Header -->
-        <div class="logo">
-            <a href="/">
-                <img class="mobile" src="/static/img/mobile_logo.png">
-                <img class="desktop" src="/static/img/desktop_logo.png">
-            </a>
-        </div>
-        <!-- Navigation -->
-        <include href="navigation-bar.htm" />
         <!-- Content -->
-        <div class="container-fluid">
-            <div class="content">
-                <include href="{{ @content }}" />
-            </div>
+        <div class="container">
+            <div class="wrapper">
+                <div class="panel panel-default text-center">
+                    <div class="panel-body">
+                        {{ @content }}
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <a href="/" class="btn btn-primary pull-right">Закрыть</a>
+                    </div>
+                </div>
+            </div> 
         </div>
-        <!-- Footer -->
-<!--         <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container-fluid"> 
-                <p class="navbar-text">ofen {{ date('Y') }} {~ echo $PATH ~}</p>
-            </div>
-        </nav> -->
         <!-- jQuery and Bootstrap JS -->
         <script src="static/js/jquery-3.3.1.min.js"></script>
         <script src="static/js/bootstrap.min.js"></script>

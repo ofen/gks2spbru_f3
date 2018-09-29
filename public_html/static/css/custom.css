@@ -8,9 +8,11 @@
        url('../fonts/roboto-v18-cyrillic_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+html, body {
+    min-height: 100%;
+}
+
 body {
-    /* Padding bottom by footer height */
-    padding-bottom: 60px;
     background-color: #FCF9DE;
     font-family: 'Roboto', sans-serif;
 }
@@ -36,7 +38,7 @@ body {
         display: none;
     }
 }
-/* Show desktop logo if width > 1024px */
+/* Show desktop logo if width > 1024x */
 @media (min-width: 1024px) {
     .logo .desktop {
         display: block;
@@ -89,4 +91,12 @@ body {
     .navbar-nav .open .dropdown-menu {
         background-color: #fff;
     }
+}
+
+.wrapper {
+    min-width: 300px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%)
 }

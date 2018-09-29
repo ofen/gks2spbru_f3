@@ -8,3 +8,8 @@ $(document).on('click', '[id^=file-info]', function() {
     var input = $(this);
     input.siblings('.input-group-btn').click();
 });
+
+
+$(window).on('load', function() {
+    $('#myModal').modal('show');
+});
