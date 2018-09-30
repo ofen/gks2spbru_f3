@@ -18,17 +18,17 @@ body {
 }
 
 .logo {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
   /*  margin-bottom: -1.5rem;*/
 }
 
 .logo img {
     max-width: 100%;
-    height: 150px;
+    height: 128px;
 }
 /* Show mobile logo if width < 1024px */
-@media all and (max-width: 1024px) {
+@media (max-width: 1024px) {
     .logo .mobile {
         display: block;
         margin-left: auto;
@@ -65,15 +65,11 @@ body {
 
 
 /* Input group customization */
-.input-group {
-    margin-bottom: 15px;
-}
-
 .input-group input[type=text] {
     cursor: pointer;
     outline: none;
     box-shadow:none !important;
-    border: 1px solid #ccc !important;
+/*    border: 1px solid #ccc !important;*/
 }
 /* Navigation bar customization */
 .navbar {

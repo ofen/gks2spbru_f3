@@ -27,6 +27,11 @@
         <include href="navigation-bar.htm" />
         <!-- Content -->
         <div class="container-fluid">
+            <check if="{{ Flash::hasFlash() }}">
+                <div class="alert alert-success alert-dismissible fade in" data-dismiss="alert" role="alert">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{ Flash::getFlash() }}
+                </div>
+            </check>
             <div class="content">
                 <include href="{{ @content }}" />
             </div>

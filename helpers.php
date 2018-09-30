@@ -8,6 +8,28 @@ function isActive($route) {
     }
 }
 
+function validate($data) {
+    $firstnameErr = $lastnameErr = $addressErr = $phoneErr = "";
+    $emailErr = $subjectErr = $bodyErr = $attachemntErr = "";
+    /*
+        form_firstname
+        form_lastname
+        form_address
+        form_phone
+        form_email
+        form_subject
+        form_body
+        form_attachment
+    */
+
+    if (empty($data['form_firstname'])) {
+        $firstnameErr = 'Имя обязательно';
+    } elseif (!preg_match($firstnameRegexp, $data['form_firstname'])) {
+        $firstnameErr = 'Некорректное имя';
+    }
+    
+}
+
 class Flash {
 
     static public function setFlash($type, $message) {

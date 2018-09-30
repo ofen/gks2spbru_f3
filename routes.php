@@ -1,5 +1,12 @@
 <?php
 
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data =htmlspecialchars($data);
+    return $data;
+}
+
 $f3->route('GET /', function($f3) {
     $f3->set('content', 'index.htm');
     echo \Template::instance()->render('layout.htm');
@@ -21,18 +28,22 @@ $f3->route('GET /pricing', function($f3) {
 });
 
 $f3->route('GET /reception', function($f3) {
-    if (Flash::hasFlash()) {
-        $f3->set('content', Flash::getFlash());
-        echo \Template::instance()->render('notification.htm');
-    } else {
-        $f3->set('content', 'reception.htm');
-        echo \Template::instance()->render('layout.htm');
-    }
+    // if (Flash::hasFlash()) {
+    //     $f3->set('content', Flash::getFlash());
+    //     echo \Template::instance()->render('notification.htm');
+    // } else {
+    //     $f3->set('content', 'reception.htm');
+    //     echo \Template::instance()->render('layout.htm');
+    // }
+    $f3->set('content', 'reception.htm');
+    echo \Template::instance()->render('layout.htm');
 });
 
 $f3->route('POST /reception', function($f3) {
-    Flash::setFlash('success', 'Вы успешно отправили сообщение!');
-    $f3->reroute('/reception');
+    header('Content-Type: application/json');
+    echo json_encode($_SERVER);
+    // Flash::setFlash('success', 'Сообщение успешно отправлено!');
+    // $f3->reroute('/');
 });
 
 // class Page {
