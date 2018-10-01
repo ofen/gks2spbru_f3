@@ -9,11 +9,6 @@ $(document).on('click', '[id^=form_file-info]', function() {
     input.siblings('.input-group-btn').click();
 });
 
-
-$(window).on('load', function() {
-    $('#myModal').modal('show');
-});
-
 $('#reception').on('submit', function(e) {
     e.preventDefault();
 
@@ -30,7 +25,7 @@ $('#reception').on('submit', function(e) {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <p>Вы успешно отправили сообщение</p>
+                        Вы успешно отправили сообщение
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
@@ -42,11 +37,9 @@ $('#reception').on('submit', function(e) {
 
     $(this)[0].reset();
     $('body').append(modal);
-    $('#myModal').modal({
-        backdrop: 'static'
-    });
-});
+    $('#myModal').modal('show');
 
-$("#myModal").on('hidden.bs.modal', function (e) {
-    $('#myModal').remove();
+    $("#myModal").on('hidden.bs.modal', function(e) {
+        $(this).remove();
+    });
 });
