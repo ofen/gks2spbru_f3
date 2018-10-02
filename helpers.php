@@ -9,23 +9,41 @@ function isActive($route) {
 }
 
 function validate($data) {
-    $firstnameErr = $lastnameErr = $addressErr = $phoneErr = "";
-    $emailErr = $subjectErr = $bodyErr = $attachemntErr = "";
+    $errors = array();
+    // $errors = [
+    //     'firstname' => '',
+    //     'lastname' => '',
+    //     'address' => '',
+    //     'phone' => '',
+    //     'email' => '',
+    //     'subject' => '',
+    //     'body' => '',
+    //     'attachment' => '',
+    // ];
+
+    // $firstnameErr = $lastnameErr = $addressErr = $phoneErr = "";
+    // $emailErr = $subjectErr = $bodyErr = $attachemntErr = "";
     /*
-        form_firstname
-        form_lastname
-        form_address
-        form_phone
-        form_email
-        form_subject
-        form_body
-        form_attachment
+        firstname
+        lastname
+        address
+        phone
+        email
+        subject
+        body
+        attachment
     */
 
-    if (empty($data['form_firstname'])) {
-        $firstnameErr = 'Имя обязательно';
-    } elseif (!preg_match($firstnameRegexp, $data['form_firstname'])) {
-        $firstnameErr = 'Некорректное имя';
+    if (empty($data['firstname'])) {
+        $errors['firstname'] = 'Имя обязательно';
+    } elseif (!preg_match("/^[а-я ]+$/ui", $data['firstname'])) {
+        $errors['firstname'] = 'Некорректное имя';
+    }
+
+    if ($errors) {
+        return $errors;
+    } else {
+        return 'OK';
     }
     
 }

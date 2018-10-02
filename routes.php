@@ -40,7 +40,7 @@ $f3->route('GET /reception', function($f3) {
 });
 
 $f3->route('POST /reception', function($f3) {
-    echo json_encode(['result' => 'OK!']);
+    echo json_encode(['result' => validate($_POST)]);
     // Flash::setFlash('success', 'Сообщение успешно отправлено!');
     // $f3->reroute('/');
 });

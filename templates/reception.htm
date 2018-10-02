@@ -4,31 +4,15 @@
         <div class="col-sm-6">
             <!-- Field -->
             <div class="form-group">
-                <label class="control-label" for="form_firstname">Имя *</label>
-                <input type="text" name="form_firstname" class="form-control" id="form_firstname" placeholder="Введите ваше имя" required>
+                <label class="control-label" for="firstname">Имя *</label>
+                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Введите ваше имя" required>
             </div>
         </div>
         <div class="col-sm-6">
             <!-- Field -->
             <div class="form-group">
-                <label class="control-label" for="form_lastname">Фамилия *</label>
-                <input type="text" name="form_lastname" class="form-control" id="form_lastname" placeholder="Введите вашу фамилию" required>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <!-- Field -->
-            <div class="form-group">
-                <label class="control-label" for="form_address">Адрес *</label>
-                <input type="text" name="form_address" class="form-control" id="form_address" placeholder="Введите ваш адрес" required>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <!-- Field -->
-            <div class="form-group">
-                <label class="control-label" for="form_phone">Телефон *</label>
-                <input type="text" name="form_phone" class="form-control" id="form_phone" placeholder="Введите ваш номер телефона" required>
+                <label class="control-label" for="lastname">Фамилия *</label>
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Введите вашу фамилию" required>
             </div>
         </div>
     </div>
@@ -36,15 +20,31 @@
         <div class="col-sm-6">
             <!-- Field -->
             <div class="form-group">
-                <label class="control-label" for="form_email">Email *</label>
-                <input type="email" name="form_email" class="form-control" id="form_email" placeholder="Введите ваш email адрес" required>
+                <label class="control-label" for="address">Адрес *</label>
+                <input type="text" name="address" class="form-control" id="address" placeholder="Введите ваш адрес" required>
             </div>
         </div>
         <div class="col-sm-6">
             <!-- Field -->
             <div class="form-group">
-                <label class="control-label" for="form_subject">Тема сообщения *</label>
-                <select name="form_subject" class="form-control" id="form_subject" required>
+                <label class="control-label" for="phone">Телефон *</label>
+                <input type="text" name="phone" class="form-control" id="phone" placeholder="Введите ваш номер телефона" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <!-- Field -->
+            <div class="form-group">
+                <label class="control-label" for="email">Email *</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Введите ваш email адрес" required>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <!-- Field -->
+            <div class="form-group">
+                <label class="control-label" for="subject">Тема сообщения *</label>
+                <select name="subject" class="form-control" id="subject" required>
                     <option value="" disabled selected hidden> </option>
                     <option value="1">Обращение</option>
                     <option value="2">Пожелание</option>
@@ -59,21 +59,20 @@
     </div>
     <!-- Field -->
     <div class="form-group">
-        <label  class="control-label" for="form_body">Текст сообщения *</label>
-        <textarea name="form_body" class="form-control" id="form_body" rows="3" placeholder="Введите текст сообщения" required></textarea>
+        <label  class="control-label" for="body">Текст сообщения *</label>
+        <textarea name="body" class="form-control" id="body" rows="3" placeholder="Введите текст сообщения" required></textarea>
     </div>
-    <!-- Field -->
-
+    <!-- Upload file -->
     <div class="form-group">
-        <label class="control-label" for="form_attachment">Прикрепить файл</label>
+        <label class="control-label" for="attachment">Прикрепить файл</label>
         <div class="input-group">
             <label class="input-group-btn">
                 <span class="btn btn-primary">
                     <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Выберите файл
                 </span>
-                <input type="file" name="form_attachment" class="hidden">
+                <input type="file" name="attachment" class="hidden">
             </label>
-            <input type="text" class="form-control" id="form_file-info" placeholder="Файл не выбран" readonly>
+            <input type="text" class="form-control" id="file-info" placeholder="Файл не выбран" readonly>
         </div>
         <span class="help-block">Только файлы в формате jpg, png и pdf</span>
     </div>
