@@ -17,7 +17,6 @@ $('#reception').on('submit', function(e) {
         data: form.serialize(),
         success: function(data) {
             console.log(data);
-            var data = JSON.parse(data);
             if (data.result == 'OK') {
                 form[0].reset();
                 var html = `
