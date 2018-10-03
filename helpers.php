@@ -47,6 +47,22 @@ function validate($data) {
         $errors['phone'] = 'Некорректный телефон';
     }
 
+    if (empty($data['email'])) {
+        $errors['email'] = 'Телефон обязателен';
+    } elseif (!preg_match("/^[0-9\+]+$/", $data['email'])) {
+        $errors['email'] = 'Некорректный телефон';
+    }
+
+    if (empty($data['subject'])) {
+        $errors['subject'] = 'Тема обязательна';
+    } elseif (!preg_match("/^[0-9\+]+$/", $data['subject'])) {
+        $errors['subject'] = 'Некорректная тема';
+    }
+
+    if (empty($data['body'])) {
+        $errors['body'] = 'Текст сообщения обязателен';
+    }
+
     // Return array of errors or OK
     if ($errors) {
         return $errors;
