@@ -10,17 +10,6 @@ function isActive($route) {
 
 function validate($data) {
     $errors = array();
-    // $errors = [
-    //     'firstname' => '',
-    //     'lastname' => '',
-    //     'address' => '',
-    //     'phone' => '',
-    //     'email' => '',
-    //     'subject' => '',
-    //     'body' => '',
-    //     'attachment' => '',
-    // ];
-
     // $firstnameErr = $lastnameErr = $addressErr = $phoneErr = "";
     // $emailErr = $subjectErr = $bodyErr = $attachemntErr = "";
     /*
@@ -40,6 +29,25 @@ function validate($data) {
         $errors['firstname'] = 'Некорректное имя';
     }
 
+    if (empty($data['lastname'])) {
+        $errors['lastname'] = 'Фамилия обязательна';
+    } elseif (!preg_match("/^[а-я ]+$/ui", $data['lastname'])) {
+        $errors['lastname'] = 'Некорректная фамилия';
+    }
+
+    if (empty($data['address'])) {
+        $errors['address'] = 'Адрес обязателен';
+    } elseif (!preg_match("/^[а-я \.\,0-9]+$/ui", $data['address'])) {
+        $errors['address'] = 'Некорректный адрес';
+    }
+
+    if (empty($data['phone'])) {
+        $errors['phone'] = 'Телефон обязателен';
+    } elseif (!preg_match("/^[0-9\+]+$/", $data['phone'])) {
+        $errors['phone'] = 'Некорректный телефон';
+    }
+
+    // Return array of errors or OK
     if ($errors) {
         return $errors;
     } else {
