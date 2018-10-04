@@ -1,10 +1,14 @@
-$(document).on('change', ':file', function() {
-    var input = $(this);
-    var label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.parent().siblings("[id^=file-info]").val(label);
+$(':file').on('change', function() {
+    var filename = null;
+    if (this.files[0]) {
+        filename = this.files[0].name;
+    } else {
+        filename = '';
+    }
+    $(this).parent().siblings("[id^=file-info]").val(filename);
 });
 
-$(document).on('click', '[id^=file-info]', function() {
+$('[id^=file-info]').on('click', function() {
     $(this).siblings('.input-group-btn').click();
 });
 
@@ -29,7 +33,10 @@ $('#reception').on('submit', function(e) {
 
     $.ajax({
         type: 'POST',
-        data: form.serialize(),
+        data: new FormData(this),
+        contentType: false,
+        cache: false,
+        processData: false,
         success: function(data) {
             console.log(data);
             $('div').removeClass('has-error');

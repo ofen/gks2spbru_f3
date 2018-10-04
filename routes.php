@@ -41,7 +41,7 @@ $f3->route('GET /reception', function($f3) {
 
 $f3->route('POST /reception', function($f3) {
     header('Content-Type: application/json; charset=utf-8');
-    echo json_encode(['result' => validate($_POST)]);
+    echo json_encode(['result' => validate($_POST, $_FILES)]);
     // Flash::setFlash('success', 'Сообщение успешно отправлено!');
     // $f3->reroute('/');
 });

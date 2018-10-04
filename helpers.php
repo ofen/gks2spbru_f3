@@ -8,7 +8,7 @@ function isActive($route) {
     }
 }
 
-function validate($data) {
+function validate($data, $file=null) {
     $errors = array();
     // $firstnameErr = $lastnameErr = $addressErr = $phoneErr = "";
     // $emailErr = $subjectErr = $bodyErr = $attachemntErr = "";
@@ -22,6 +22,16 @@ function validate($data) {
         body
         attachment
     */
+
+    $subject_options = [
+        'Обращение',
+        'Пожелание',
+        'Заявление',
+        'Благодарность',
+        'Претензия',
+        'Жалоба',
+        'Другое',
+    ];
 
     if (empty($data['firstname'])) {
         $errors['firstname'] = 'Имя обязательно';
@@ -48,14 +58,14 @@ function validate($data) {
     }
 
     if (empty($data['email'])) {
-        $errors['email'] = 'Телефон обязателен';
-    } elseif (!preg_match("/^[0-9\+]+$/", $data['email'])) {
-        $errors['email'] = 'Некорректный телефон';
+        $errors['email'] = 'Email обязателен';
+    } elseif (!preg_match("/^.+@.+\..+$/i", $data['email'])) {
+        $errors['email'] = 'Некорректный email';
     }
 
     if (empty($data['subject'])) {
         $errors['subject'] = 'Тема обязательна';
-    } elseif (!preg_match("/^[0-9\+]+$/", $data['subject'])) {
+    } elseif (in_array($data['subject'], $subject_options) ) {
         $errors['subject'] = 'Некорректная тема';
     }
 
@@ -63,6 +73,14 @@ function validate($data) {
         $errors['body'] = 'Текст сообщения обязателен';
     }
 
+    if (!empty($file)) {
+        if (!preg_match(pattern, subject)) {
+            $errors['attachment'] = 'Некорректный тип файла';
+        } else {
+            move_uploaded_file($file['attachment']['tmp_name'], "tmp/{$_FILES['attachment']['name']}");
+        }
+    }
+    
     // Return array of errors or OK
     if ($errors) {
         return $errors;
