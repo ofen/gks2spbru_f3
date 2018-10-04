@@ -33,6 +33,14 @@ function validate($data, $file=null) {
         'Другое',
     ];
 
+    $file_extensions = [
+        'jpg',
+        'png',
+        'pdf',
+    ];
+
+    $max_size = 5242880;
+
     if (empty($data['firstname'])) {
         $errors['firstname'] = 'Имя обязательно';
     } elseif (!preg_match("/^[а-я ]+$/ui", $data['firstname'])) {
@@ -74,10 +82,17 @@ function validate($data, $file=null) {
     }
 
     if (!empty($file)) {
-        if (!preg_match(pattern, subject)) {
+        $tmp_name = $file['attachment']['tmp_name'];
+        $file_name = $file['attachment']['name'];
+        $file_size = $file['attachment']['size'];
+        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+
+        if (!in_array($ext, $file_extensions)) {
             $errors['attachment'] = 'Некорректный тип файла';
+        } elseif ($file_size > $max_size) {
+            $errors['attachment'] = 'Файл слишком большой';
         } else {
-            move_uploaded_file($file['attachment']['tmp_name'], "tmp/{$_FILES['attachment']['name']}");
+            move_uploaded_file($tmp_name, "tmp/{$file_name}");
         }
     }
     
