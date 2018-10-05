@@ -64,17 +64,16 @@
     </div>
     <!-- Upload file -->
     <div class="form-group">
-        <label class="control-label" for="attachment">Прикрепить файл</label>
+        <label class="control-label" for="attachment">Прикрепить файл (до 5Мб)</label>
         <div class="input-group">
             <label class="input-group-btn">
                 <span class="btn btn-primary">
                     <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Выбрать файл
                 </span>
-                <input type="file" name="attachment" class="hidden">
+                <input type="file" name="attachment" class="hidden" accept=".jpg, .png, .pdf" id="attachment">
             </label>
             <input type="text" class="form-control" id="file-info" placeholder="Файл не выбран" readonly>
         </div>
-        <p class="small">Только *.jpg, *.png и *.pdf</p>
     </div>
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary" id="submit">

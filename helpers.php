@@ -8,7 +8,18 @@ function isActive($route) {
     }
 }
 
+function filter($string) {
+    $string = trim($string);
+    $string = stripslashes($string);
+    $string = htmlspecialchars($string);
+    return $string;
+}
+
 function validate($data, $file=null) {
+    foreach($data as $key => $value) {
+       $data[$key] = filter($value);
+    }
+
     $errors = array();
     // $firstnameErr = $lastnameErr = $addressErr = $phoneErr = "";
     // $emailErr = $subjectErr = $bodyErr = $attachemntErr = "";
@@ -90,7 +101,7 @@ function validate($data, $file=null) {
         if (!in_array($ext, $file_extensions)) {
             $errors['attachment'] = 'Некорректный тип файла';
         } elseif ($file_size > $max_size) {
-            $errors['attachment'] = 'Файл слишком большой';
+            $errors['attachment'] = 'Файл слишком велик';
         } else {
             move_uploaded_file($tmp_name, "tmp/{$file_name}");
         }
