@@ -16,13 +16,7 @@ function filter($string) {
 }
 
 function validate($data, $file=null) {
-    foreach($data as $key => $value) {
-       $data[$key] = filter($value);
-    }
 
-    $errors = array();
-    // $firstnameErr = $lastnameErr = $addressErr = $phoneErr = "";
-    // $emailErr = $subjectErr = $bodyErr = $attachemntErr = "";
     /*
         firstname
         lastname
@@ -33,6 +27,12 @@ function validate($data, $file=null) {
         body
         attachment
     */
+
+    foreach($data as $key => $value) {
+       $data[$key] = filter($value);
+    }
+
+    $errors = array();
 
     $subject_options = [
         'Обращение',
@@ -92,14 +92,15 @@ function validate($data, $file=null) {
         $errors['body'] = 'Текст сообщения обязателен';
     }
 
-    if (!empty($file)) {
-        $tmp_name = $file['attachment']['tmp_name'];
-        $file_name = $file['attachment']['name'];
-        $file_size = $file['attachment']['size'];
-        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+    $tmp_name = $file['attachment']['tmp_name'];
+    $file_name = $file['attachment']['name'];
+    $file_size = $file['attachment']['size'];
+    $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+
+    if ($file_size > 0) {
 
         if (!in_array($ext, $file_extensions)) {
-            $errors['attachment'] = 'Некорректный тип файла';
+            $errors['attachment'] = $file;
         } elseif ($file_size > $max_size) {
             $errors['attachment'] = 'Файл слишком велик';
         } else {

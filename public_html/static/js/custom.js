@@ -12,7 +12,7 @@ $('[id^=file-info]').on('click', function() {
     $(this).siblings('.input-group-btn').click();
 });
 
-$('#reception').on('submit', function(e) {
+$('form').on('submit', function(e) {
     e.preventDefault();
     var form = $(this);
 
