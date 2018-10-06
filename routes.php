@@ -1,24 +1,30 @@
 <?php
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data =htmlspecialchars($data);
-    return $data;
-}
-
 $f3->route('GET /', function($f3) {
     $f3->set('content', 'index.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
 $f3->route('GET /news', function($f3) {
+    $articles = $f3->get('DB')->exec('SELECT * FROM articles');
+    rsort($articles);
     $f3->set('content', 'news.htm');
+    $f3->set('articles', $articles);
     echo \Template::instance()->render('layout.htm');
 });
 
 $f3->route('GET /about', function($f3) {
     $f3->set('content', 'about.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /working_hours', function($f3) {
+    $f3->set('content', 'working_hours.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /jobs', function($f3) {
+    $f3->set('content', 'jobs.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
