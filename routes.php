@@ -18,6 +18,11 @@ $f3->route('GET /about', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+$f3->route('GET /organization_structure', function($f3) {
+    $f3->set('content', 'organization_structure.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
 $f3->route('GET /working_hours', function($f3) {
     $f3->set('content', 'working_hours.htm');
     echo \Template::instance()->render('layout.htm');
@@ -34,13 +39,6 @@ $f3->route('GET /pricing', function($f3) {
 });
 
 $f3->route('GET /reception', function($f3) {
-    // if (Flash::hasFlash()) {
-    //     $f3->set('content', Flash::getFlash());
-    //     echo \Template::instance()->render('notification.htm');
-    // } else {
-    //     $f3->set('content', 'reception.htm');
-    //     echo \Template::instance()->render('layout.htm');
-    // }
     $f3->set('content', 'reception.htm');
     echo \Template::instance()->render('layout.htm');
 });
@@ -48,8 +46,6 @@ $f3->route('GET /reception', function($f3) {
 $f3->route('POST /reception', function($f3) {
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode(['result' => validate($_POST, $_FILES)]);
-    // Flash::setFlash('success', 'Сообщение успешно отправлено!');
-    // $f3->reroute('/');
 });
 
 // class Page {
