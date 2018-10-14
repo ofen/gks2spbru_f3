@@ -1,9 +1,16 @@
+<!-- Note -->
 <div class="alert alert-info" role="alert">
     <p>Подробную информацию касательно тарифов, вы можете получить на сайте комитета по тарифам Санкт-Петербурга</p>
     <p><span class="glyphicon glyphicon-link"></span> <a href="http://tarifspb.ru/documents/acts/" target="_blank">http://tarifspb.ru/documents/acts/</a></p>
 </div>
-<div class="list-group">
-    <a href="doc/tarifi_01072018.pdf" target="_blank" class="list-group-item">Тарифы на 2018 год</a>
-    <a href="doc/tarifi_01072017.pdf" target="_blank" class="list-group-item">Тарифы на 2017 год</a>
-    <a href="doc/tarifi_01072016.pdf" target="_blank" class="list-group-item">Тарифы на 2016 год</a>
-</div>
+<!-- Table -->
+<table class="table table-hover">
+    <tbody>
+        <repeat group="{{ @files }}" value="{{ @file }}">
+            <tr>
+                <td>{{ @file['filename'] }}</td>
+                <td><a href="{{ @file['link'] }}" target="_blank"><span class="glyphicon glyphicon-floppy-save"></span> Скачать</a></td>
+            </tr>
+        </repeat>
+    </tbody>
+</table>

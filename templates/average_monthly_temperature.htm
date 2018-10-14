@@ -1,0 +1,19 @@
+<table class="table table-hover">
+    <repeat group="{{ @data }}" key="{{ @season }}" value="{{ @season_data }}">
+        <!-- Table -->
+        <thead>
+            <tr>
+                <th>{{ @season }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <repeat group="{{ @season_data }}" key="{{ @key }}" value="{{ @value }}">
+                <tr>
+                    <td>{{ @key }}</td>
+                    <td>{{ @value }}</td>
+                </tr>
+            </repeat>
+        </tbody>
+    </repeat>
+</table>
