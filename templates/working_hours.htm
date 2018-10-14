@@ -1,7 +1,12 @@
-<!-- Note -->
-<p><button class="btn btn-primary" data-toggle="modal" data-target="#reception_hours">Часы приема</button></p>
-<div class="modal fade" tabindex="-1" role="dialog" id="reception_hours">
-    <div class="modal-dialog" role="document" data-dismiss="modal">
+<!-- Button -->
+<p>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#reception_hours">
+        <span class="glyphicon glyphicon-time"></span> Часы приема
+    </button>
+</p>
+<!-- Modal dialog -->
+<div class="modal fade" tabindex="-1" role="dialog" id="reception_hours" data-backdrop="static">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <p>
@@ -9,16 +14,21 @@
                     Понедельник 17:00-19:00<br>
                     Четверг 10:00-12:00
                 </p>
+                <hr>
                 <p>
                     <strong>Заместитель генерального директора (главный инженер)</strong><br>
                     Вторник 10:00-12:00<br>
                     Среда 17:00-19:00
                 </p>
+                <hr>
                 <p>
                     <strong>Заместитель генерального директора по санитарному содержанию и благоустройству</strong><br>
                     Вторник 10:00-12:00<br>
                     Среда 17:00-19:00
                 </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
             </div>
         </div>
     </div>

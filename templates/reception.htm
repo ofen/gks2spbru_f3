@@ -5,14 +5,14 @@
             <!-- Field -->
             <div class="form-group">
                 <label class="control-label" for="firstname">Имя *</label>
-                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Введите ваше имя" autocomplete="given-name">
+                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Ваше имя" autocomplete="given-name">
             </div>
         </div>
         <div class="col-sm-6">
             <!-- Field -->
             <div class="form-group">
                 <label class="control-label" for="lastname">Фамилия *</label>
-                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Введите вашу фамилию" autocomplete="family-name">
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Ваша фамилия" autocomplete="family-name">
             </div>
         </div>
     </div>
@@ -21,14 +21,14 @@
             <!-- Field -->
             <div class="form-group">
                 <label class="control-label" for="address">Адрес *</label>
-                <input type="text" name="address" class="form-control" id="address" placeholder="Введите ваш адрес" autocomplete="street-address">
+                <input type="text" name="address" class="form-control" id="address" placeholder="Ваш адрес" autocomplete="street-address">
             </div>
         </div>
         <div class="col-sm-6">
             <!-- Field -->
             <div class="form-group">
                 <label class="control-label" for="phone">Телефон *</label>
-                <input type="text" name="phone" class="form-control" id="phone" placeholder="Введите ваш номер телефона" autocomplete="tel-national">
+                <input type="text" name="phone" class="form-control" id="phone" placeholder="Ваш номер телефона" autocomplete="tel-national">
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
             <!-- Field -->
             <div class="form-group">
                 <label class="control-label" for="email">Email *</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="Введите ваш email адрес" autocomplete="email">
+                <input type="email" name="email" class="form-control" id="email" placeholder="Ваш email адрес" autocomplete="email">
             </div>
         </div>
         <div class="col-sm-6">
@@ -60,20 +60,12 @@
     <!-- Field -->
     <div class="form-group">
         <label  class="control-label" for="body">Текст сообщения *</label>
-        <textarea name="body" class="form-control" id="body" rows="3" placeholder="Введите текст сообщения"></textarea>
+        <textarea name="body" class="form-control" id="body" rows="3" placeholder="Текст сообщения"></textarea>
     </div>
     <!-- Upload file -->
     <div class="form-group">
-        <label class="control-label" for="attachment">Прикрепить файл (jpg, png, pdf до 5Мб)</label>
-        <div class="input-group">
-            <label class="input-group-btn">
-                <span class="btn btn-primary">
-                    <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Выбрать файл
-                </span>
-                <input type="file" name="attachment" class="hidden" accept=".jpg, .png, .pdf" id="attachment">
-            </label>
-            <input type="text" class="form-control" id="file-info" placeholder="Файл не выбран" readonly>
-        </div>
+        <label class="control-label" for="attachment">Прикрепить файл (до 5Мб)</label>
+        <input type="file" name="attachment" accept=".jpg, .png, .pdf" id="attachment">
     </div>
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary" id="submit">
@@ -81,8 +73,8 @@
     </button>
     <p class="small">* Поля обязательные для заполнения</p>
 </form>
-<!-- Modal doalog -->
-<div class="modal fade" id="submitModal" tabindex="-1" role="dialog">
+<!-- Modal dialog -->
+<div class="modal fade" id="submitModal" tabindex="-1" role="dialog" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">

@@ -19,14 +19,14 @@
         <!-- Header -->
         <div class="logo">
             <a href="/">
-                <img class="mobile" src="/static/img/mobile_logo.png">
-                <img class="desktop" src="/static/img/desktop_logo.png">
+                <img class="visible-xs" src="/static/img/mobile_logo.png">
+                <img class="hidden-xs" src="/static/img/desktop_logo.png">
             </a>
         </div>
         <!-- Navigation -->
         <include href="navigation-bar.htm" />
-        <!-- Content -->
         <div class="container">
+            <!-- Content -->
             <include href="{{ @content }}" />
         </div>
         <!-- Footer -->
