@@ -1,25 +1,27 @@
-<repeat group="{{ @employees }}" value="{{ @employee }}">
-    <div class="media">
-        <div class="media-left">
-            <check if="{{ @employee['photo'] }} != '#'">
-                <true>
-                    <img class="media-object img-thumbnail" src="{{ @employee['photo'] }}" alt="photo">
-                </true>
-                <false>
-                    <img class="media-object img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNjY3M2M2ZWVlYiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE2NjczYzZlZWViIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi44Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="photo">
-                </false>
-            </check>
-        </div>
-        <div class="media-body">
-            <h4 class="media-heading">{{ @employee['fullname'] }}</h4>
-            <p>
-                {{ @employee['position'] }}<br>
-                Телефон: {{ @employee['phone'] }}<br>
-                Адрес: {{ @employee['location'] }}<br>
-                <check if="{{ @employee['reception_hours'] }}">
-                    Часы приема: {{ @employee['reception_hours'] }}
+<repeat group="">
+    <repeat group="{{ @employees }}" value="{{ @employee }}">
+        <div class="media">
+            <div class="media-left">
+                <check if="{{ @employee['photo'] }} != '#'">
+                    <true>
+                        <img class="media-object img-thumbnail" src="{{ @employee['photo'] }}" alt="photo">
+                    </true>
+                    <false>
+                        <img class="media-object img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNjY3M2M2ZWVlYiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE2NjczYzZlZWViIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi44Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="photo">
+                    </false>
                 </check>
-            </p>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{ @employee['fullname'] }}</h4>
+                <p>
+                    {{ @employee['position'] }}<br>
+                    Телефон: {{ @employee['phone'] }}<br>
+                    Адрес: {{ @employee['location'] }}<br>
+                    <check if="{{ @employee['reception_hours'] }}">
+                        Часы приема: {{ @employee['reception_hours'] }}
+                    </check>
+                </p>
+            </div>
         </div>
-    </div>
+    </repeat>
 </repeat>

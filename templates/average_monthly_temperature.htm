@@ -1,19 +1,20 @@
-<table class="table table-hover">
-    <repeat group="{{ @data }}" key="{{ @season }}" value="{{ @season_data }}">
-        <!-- Table -->
-        <thead>
-            <tr>
-                <th>{{ @season }}</th>
-                <th></th>
-            </tr>
-        </thead>
+<!-- Note -->
+<div class="alert alert-info" role="alert">
+    <p>Данные взяты с сайта ФГБУ «Северо-Западное УГМС»</p>
+    <p><a href="http://tarifspb.ru/documents/acts/" target="_blank"><span class="glyphicon glyphicon-link"></span> http://www.meteo.nw.ru/</a></p>
+</div>
+
+<repeat group="{{ @data }}" key="{{ @season }}" value="{{ @season_data }}">
+    <h4>{{ @season }}</h4>
+    <!-- Table -->
+    <table class="table table-hover">
         <tbody>
             <repeat group="{{ @season_data }}" key="{{ @key }}" value="{{ @value }}">
                 <tr>
                     <td>{{ @key }}</td>
-                    <td>{{ @value }}</td>
+                    <td class="col-sm-1">{{ @value }}</td>
                 </tr>
             </repeat>
         </tbody>
-    </repeat>
-</table>
+    </table>
+</repeat>
