@@ -20,7 +20,7 @@ $f3->route('GET /about', function($f3) {
 
 $f3->route('GET /organization_structure', function($f3) {
     $f3->set('content', 'organization_structure.htm');
-    $f3->set('employees', require_once '../employees.php');
+    $f3->set('data', require_once '../employees.php');
     echo \Template::instance()->render('layout.htm');
 });
 

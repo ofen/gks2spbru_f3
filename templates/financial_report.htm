@@ -4,7 +4,7 @@
         <repeat group="{{ @files }}" value="{{ @file }}">
             <tr>
                 <td>{{ @file['filename'] }}</td>
-                <td><a href="{{ @file['link'] }}" target="_blank" class="btn btn-link"><span class="glyphicon glyphicon-floppy-save"></span> Скачать</a></td>
+                <td><a href="{{ @file['link'] }}" target="_blank" class="btn btn-primary">Скачать <span class="glyphicon glyphicon-save"></span></a></td>
             </tr>
         </repeat>
     </tbody>
