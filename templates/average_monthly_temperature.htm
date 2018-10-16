@@ -5,9 +5,9 @@
 </div>
 
 <repeat group="{{ @data }}" key="{{ @season }}" value="{{ @season_data }}">
-    <h4>{{ @season }}</h4>
     <!-- Table -->
     <table class="table table-hover">
+        <caption>{{ @season }}</caption>
         <tbody>
             <repeat group="{{ @season_data }}" key="{{ @key }}" value="{{ @value }}">
                 <tr>
