@@ -1,5 +1,5 @@
 <repeat group="{{ @data }}" key="{{ @devision }}" value="{{ @employees }}">
-    <h3>{{ @devision }}</h3>
+    <h4>{{ @devision }}</h4>
     <repeat group="{{ @employees }}" value="{{ @employee }}">
         <div class="media">
             <div class="media-left">
@@ -13,9 +13,11 @@
                 </check>
             </div>
             <div class="media-body">
-                <h4 class="media-heading">{{ @employee['fullname'] }}</h4>
+                <h4 class="media-heading">
+                    {{ @employee['fullname'] }}<br>
+                    <small>{{ @employee['position'] }}</small>
+                </h4>
                 <p>
-                    {{ @employee['position'] }}<br>
                     Телефон: {{ @employee['phone'] }}<br>
                     Адрес: {{ @employee['location'] }}<br>
                     <check if="{{ @employee['reception_hours'] }}">
