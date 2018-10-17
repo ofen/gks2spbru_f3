@@ -1,5 +1,5 @@
 <?php
-
+// Column
 $f3->route('GET /', function($f3) {
     $f3->set('content', 'index.htm');
     echo \Template::instance()->render('layout.htm');
@@ -34,6 +34,18 @@ $f3->route('GET /jobs', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+$f3->route('GET /house_list', function($f3) {
+    $f3->set('content', 'house_list.htm');
+    $f3->set('data', require_once '../house_list.php');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /contacts', function($f3) {
+    $f3->set('content', 'contacts.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
+// Column
 $f3->route('GET /pricing', function($f3) {
     $f3->set('content', 'pricing.htm');
     $f3->set('files', [

@@ -1,0 +1,63 @@
+<!-- Button -->
+<!-- <p>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#reception_hours">
+        <span class="glyphicon glyphicon-file"></span> Расторгнутые договора управления
+    </button>
+</p> -->
+<!-- Modal dialog -->
+<div class="modal fade" tabindex="-1" role="dialog" id="reception_hours" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4>2012 год</h4>
+                <p>Балтийская ул., д.29, лит.А Открытый конкурс</p>
+                <p>Баррикадная ул., д.36, лит.А Открытый конкурс</p>
+                <p>Губина ул., д.11, лит.А Открытый конкурс</p>
+                <p>Косинова ул., д.6, лит.А Открытый конкурс</p>
+                <p>Краснопутиловская ул., д.11, лит.А Открытый конкурс</p>
+                <p>Маршала Говорова ул., д.8, лит.А Открытый конкурс</p>
+                <p>Маршала Говорова ул., д.8, лит.Б Открытый конкурс</p>
+                <p>Оборонная ул., д.29, лит.А Открытый конкурс</p>
+                <p>Промышленная ул., д.10, лит.А Открытый конкурс</p>
+                <p>Промышленная ул., д.14, лит.А Открытый конкурс</p>
+                <p>Промышленная ул., д.16, лит.А Открытый конкурс</p>
+                <p>Севастопольская ул., д.3, лит.А Открытый конкурс</p>
+                <p>Севастопольская ул., д.5, лит.А Открытый конкурс</p>
+                <p>Стачек пр-кт., д.13, лит.А Открытый конкурс</p>
+                <p>Трефолева ул., д.18, лит.К Открытый конкурс</p>
+                <h4>2013 год</h4>
+                <p>----</p>
+                <h4>2014 год</h4>
+                <p>----</p>
+                <h4>2015 год</h4>
+                <p>----</p>
+                <h4>2016 год</h4>
+                <p>----</p>
+                <h4>2017 год</h4>
+                <p>----</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="text" name="search" id="house_search" placeholder="Поиск" class="form-control">
+<!-- Table -->
+<table class="table table-hover" id="house_list">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th class="col-xs-11">Адрес</th>
+        </tr>
+    </thead>
+    <tbody>
+        <repeat group="{{ @data }}" key="{{ @index }}" value="{{ @house }}">
+            <tr>
+                <td>{{ @index+1 }}</td>
+                <td>{{ @house }}</td>
+            </tr>
+        </repeat>
+    </tbody>
+</table>

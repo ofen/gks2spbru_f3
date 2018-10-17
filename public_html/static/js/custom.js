@@ -27,3 +27,10 @@ $('form').on('submit', function(e) {
         }
     });
 });
+
+$("#house_search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#house_list tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+});
