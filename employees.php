@@ -1,6 +1,6 @@
 <?php
 
-$data = array(
+return array(
     'Администрация' => [
         [
             'photo' => '#',
@@ -246,7 +246,7 @@ $data = array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00'
         ]
     ],
-    'Эксплуатационный участок №3' => [    
+    'Эксплуатационный участок №3' => [
         [
             'photo' => '#',
             'fullname' => 'Бутырская Галина Владимировна',
@@ -490,9 +490,3 @@ $data = array(
         ]
     ]
 );
-
-foreach ($data as $key => $value) {
-    $data[$key] = array_chunk($value, 4);
-}
-
-return $data;

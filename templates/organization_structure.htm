@@ -1,25 +1,28 @@
-<repeat group="{{ @data }}" key="{{ @division}}" value="{{ @rows }}">
-    <h2>{{ @division }}</h2>
-    <repeat group="{{ @rows }}" value="{{ @row }}">
-        <div class="row">
-            <repeat group="{{ @row }}" value="{{ @employee }}">
-                <div class="col-xs-8 col-xscol-sm-4 col-md-3">
-                    <div class="thumbnail">
-                        <img src="holder.js/200x150" alt="photo">
-                        <div class="caption">
-                            <h4>{{ @employee['fullname'] }}</h4>
-                            <p>
-                                {{ @employee['position'] }}<br>
-                                Телефон: {{ @employee['phone'] }}<br>
-                                Адрес: {{ @employee['location'] }}<br>
-                                <check if="{{ @employee['reception_hours'] }}">
-                                    Часы приема: {{ @employee['reception_hours'] }}
-                                </check>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </repeat>
+<repeat group="{{ @data }}" key="{{ @devision }}" value="{{ @employees }}">
+    <h3>{{ @devision }}</h3>
+    <repeat group="{{ @employees }}" value="{{ @employee }}">
+        <div class="media">
+            <div class="media-left">
+                <check if="{{ @employee['photo'] }} != '#'">
+                    <true>
+                        <img class="media-object img-thumbnail" src="{{ @employee['photo'] }}" alt="photo">
+                    </true>
+                    <false>
+                        <img class="media-object img-thumbnail" src="holder.js/150x150" alt="photo">
+                    </false>
+                </check>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{ @employee['fullname'] }}</h4>
+                <p>
+                    {{ @employee['position'] }}<br>
+                    Телефон: {{ @employee['phone'] }}<br>
+                    Адрес: {{ @employee['location'] }}<br>
+                    <check if="{{ @employee['reception_hours'] }}">
+                        Часы приема: {{ @employee['reception_hours'] }}
+                    </check>
+                </p>
+            </div>
         </div>
     </repeat>
 </repeat>
