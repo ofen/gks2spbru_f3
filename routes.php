@@ -40,6 +40,12 @@ $f3->route('GET /house_list', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+$f3->route('GET /thanks', function($f3) {
+    $f3->set('content', 'thanks.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
+
 $f3->route('GET /contacts', function($f3) {
     $f3->set('content', 'contacts.htm');
     echo \Template::instance()->render('layout.htm');
@@ -96,6 +102,76 @@ $f3->route('GET /financial_report', function($f3) {
             'filename' => 'Бухгалтерский баланс на 2012 год',
             'link' => 'doc/financial_report_2012.pdf'
         ],
+    ]);
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /house_report', function($f3) {
+    $f3->set('content', 'house_report.htm');
+    $f3->set('files', [
+        [
+            'filename' => 'Отчет текущего ремонта на 2018 год',
+            'link' => 'doc/otchet_tekushego_remonta_2018.pdf'
+        ],
+        [
+            'filename' => 'Отчет текущего ремонта на 2017 год',
+            'link' => 'doc/otchet_tekushego_remonta_2017.pdf'
+        ],
+        [
+            'filename' => 'Отчет текущего ремонта на 2016 год',
+            'link' => 'doc/otchet_tekushego_remonta_2016.pdf'
+        ],
+        [
+            'filename' => 'Отчет текущего ремонта на 2015 год',
+            'link' => 'doc/otchet_tekushego_remonta_2015.pdf'
+        ],
+        [
+            'filename' => 'Отчет текущего ремонта на 2014 год',
+            'link' => 'doc/otchet_tekushego_remonta_2014.pdf'
+        ],
+        [
+            'filename' => 'Отчет текущего ремонта на 2013 год',
+            'link' => 'doc/otchet_tekushego_remonta_2013.pdf'
+        ],
+        [
+            'filename' => 'Отчет текущего ремонта на 2012 год',
+            'link' => 'doc/otchet_tekushego_remonta_2012.pdf'
+        ],
+        [
+            'filename' => 'План текущего ремонта на 2018 год',
+            'link' => 'doc/plan_tekushego_remonta_2018.pdf'
+        ],
+
+        [
+            'filename' => 'План текущего ремонта на 2017 год',
+            'link' => 'doc/plan_tekushego_remonta_2017.pdf'
+        ],
+
+        [
+            'filename' => 'План текущего ремонта на 2016 год',
+            'link' => 'doc/plan_tekushego_remonta_2016.pdf'
+        ],
+
+        [
+            'filename' => 'План текущего ремонта на 2015 год',
+            'link' => 'doc/plan_tekushego_remonta_2015.pdf'
+        ],
+
+        [
+            'filename' => 'План текущего ремонта на 2014 год',
+            'link' => 'doc/plan_tekushego_remonta_2014.pdf'
+        ],
+
+        [
+            'filename' => 'План текущего ремонта на 2013 год',
+            'link' => 'doc/plan_tekushego_remonta_2013.pdf'
+        ],
+
+        [
+            'filename' => 'План текущего ремонта на 2012 год',
+            'link' => 'doc/plan_tekushego_remonta_2012.pdf'
+        ],
+
     ]);
     echo \Template::instance()->render('layout.htm');
 });
@@ -184,6 +260,11 @@ $f3->route('GET /average_monthly_temperature', function($f3) {
             'Средняя температура' => '-2.2'
         ],
     ]);
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /purchases', function($f3) {
+    $f3->set('content', 'purchases.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
