@@ -1,6 +1,5 @@
 <!-- Table -->
 <table class="table table-hover" id="table_2016">
-    <caption>2016</caption>
     <thead>
         <tr>
             <th>#</th>
@@ -12,7 +11,7 @@
         <repeat group="{{ @files }}" key="{{ @key }}" value="{{ @value }}">
             <tr>
                 <td>{{ @key+1 }}</td>
-                <td><a href="{{ '/doc/' . @value . '.pdf' }}">{{ @value }}</a></td>
+                <td><a href="#">{{ @value }}</a></td>
                 <td>Нарушения устранены</td>
             </tr>
         </repeat>
