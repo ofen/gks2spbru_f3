@@ -1,4 +1,5 @@
 <?php
+
 // Column
 $f3->route('GET /', function($f3) {
     $f3->set('content', 'index.htm');
@@ -20,7 +21,7 @@ $f3->route('GET /about', function($f3) {
 
 $f3->route('GET /organization_structure', function($f3) {
     $f3->set('content', 'organization_structure.htm');
-    $f3->set('data', require_once '../employees.php');
+    $f3->set('data', require_once '../data/employees.php');
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -36,7 +37,13 @@ $f3->route('GET /jobs', function($f3) {
 
 $f3->route('GET /house_list', function($f3) {
     $f3->set('content', 'house_list.htm');
-    $f3->set('data', require_once '../house_list.php');
+    $f3->set('data', require_once '../data/house_list.php');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /adm_pravonarusheniya', function($f3) {
+    $f3->set('content', 'adm_pravonarusheniya.htm');
+    $f3->set('files', require_once '../data/postanovleniya.php');
     echo \Template::instance()->render('layout.htm');
 });
 
