@@ -28,9 +28,16 @@ $('form').on('submit', function(e) {
     });
 });
 
-$("#house_search").on("keyup", function() {
+$("#search_data").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $("#house_list tbody tr").filter(function() {
+    $("#data_list tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+});
+
+$("#select_data").on("change", function() {
+    var value = $(this).val().toLowerCase();
+    $("#data_list tbody tr").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
 });

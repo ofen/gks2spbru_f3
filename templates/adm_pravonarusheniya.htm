@@ -1,5 +1,15 @@
+<!-- Search -->
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="search">Поиск</label>
+            <input type="text" name="search" id="search_data" placeholder="Начните поиск" class="form-control">
+        </div>
+    </div>
+</div>
+
 <!-- Table -->
-<table class="table table-hover" id="table_2016">
+<table class="table table-hover" id="data_list">
     <thead>
         <tr>
             <th>#</th>
@@ -11,8 +21,8 @@
         <repeat group="{{ @files }}" key="{{ @key }}" value="{{ @value }}">
             <tr>
                 <td>{{ @key+1 }}</td>
-                <td><a href="#">{{ @value }}</a></td>
-                <td>Нарушения устранены</td>
+                <td class="col-xs-6"><a href="#">{{ @value }}</a></td>
+                <td class="col-xs-5">Нарушения устранены</td>
             </tr>
         </repeat>
     </tbody>

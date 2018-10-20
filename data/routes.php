@@ -52,23 +52,34 @@ $f3->route('GET /thanks', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-
 $f3->route('GET /contacts', function($f3) {
     $f3->set('content', 'contacts.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
-// Column
 $f3->route('GET /pricing', function($f3) {
     $f3->set('content', 'pricing.htm');
     $f3->set('files', require_once '../data/tarify.php');
     echo \Template::instance()->render('layout.htm');
 });
 
+// Column
+
 $f3->route('GET /financial_report', function($f3) {
     $f3->set('content', 'financial_report.htm');
     $f3->set('files', require_once '../data/financial_report.php');
     echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /pokazaniya_odpu', function($f3) {
+    $f3->set('content', 'pokazaniya_odpu.htm');
+    $f3->set('data', require_once '../data/pokazaniya_odpu.php');
+    echo \Template::instance()->render('layout.htm');
+});
+//////
+$f3->route('GET /pokazaniya_odpu/@year', function($f3, $params) {
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['params' => $params['year']]);
 });
 
 $f3->route('GET /house_report', function($f3) {
@@ -87,6 +98,14 @@ $f3->route('GET /purchases', function($f3) {
     $f3->set('content', 'purchases.htm');
     echo \Template::instance()->render('layout.htm');
 });
+
+$f3->route('GET /to_vdgo', function($f3) {
+    $f3->set('content', 'to_vdgo.htm');
+    $f3->set('data', require_once '../data/to_vdgo.php');
+    echo \Template::instance()->render('layout.htm');
+});
+
+// Column
 
 $f3->route('GET /reception', function($f3) {
     $f3->set('content', 'reception.htm');
