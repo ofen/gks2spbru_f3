@@ -18,23 +18,20 @@
     <body>
         <!-- Header -->
         <div class="logo">
-            <a href="/">
-                <img class="visible-xs center-block" src="/static/img/mobile_logo.png">
-                <img class="hidden-xs center-block" src="/static/img/desktop_logo.png">
-            </a>
+            <img class="visible-xs center-block" src="/static/img/mobile_logo.png">
+            <img class="hidden-xs center-block" src="/static/img/desktop_logo.png">
         </div>
         <!-- Navigation -->
-        <include href="navigation-bar.htm" />
+        <include href="navbar.htm" />
         <div class="container">
             <!-- Content -->
             <include href="{{ @content }}" />
+            <hr>
+            <!-- Footer -->
+            <footer>
+                <p >{{ date('Y') }} ofen</p>
+            </footer>
         </div>
-        <!-- Footer -->
-<!--         <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container-fluid"> 
-                <p class="navbar-text">ofen {{ date('Y') }} {~ echo $PATH ~}</p>
-            </div>
-        </nav> -->
         <!-- jQuery and Bootstrap JS -->
         <script src="/static/js/jquery-3.3.1.min.js"></script>
         <script src="/static/js/bootstrap.min.js"></script>

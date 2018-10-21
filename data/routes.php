@@ -5,12 +5,31 @@ $f3->route('GET /', function($f3) {
     $f3->set('content', 'index.htm');
     echo \Template::instance()->render('layout.htm');
 });
+// Test
+$f3->route('GET /test', function($f3) {
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($_GET);
+});
 
 $f3->route('GET /news', function($f3) {
-    $articles = $f3->get('DB')->exec('SELECT * FROM articles');
-    rsort($articles);
+    $posts = array();
+    foreach (glob('../data/news/*.htm') as $post) {
+        $posts[] = $post;
+    }
+
+    rsort($posts);
+
+    $posts = array_chunk($posts, 2);
+
+    $page = 0;
+
+    if ($_GET) {
+        $page = $_GET['page'];
+    }
+
+    $f3->set('page', $page);
+    $f3->set('posts', $posts);
     $f3->set('content', 'news.htm');
-    $f3->set('articles', $articles);
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -41,14 +60,24 @@ $f3->route('GET /house_list', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /adm_pravonarusheniya', function($f3) {
-    $f3->set('content', 'adm_pravonarusheniya.htm');
-    $f3->set('files', require_once '../data/postanovleniya.php');
+$f3->route('GET /order', function($f3) {
+    $f3->set('content', 'order.htm');
+    $f3->set('files', require_once '../data/order.php');
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /thanks', function($f3) {
-    $f3->set('content', 'thanks.htm');
+$f3->route('GET /thank_you_letter', function($f3) {
+    $f3->set('content', 'thank_you_letter.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /press', function($f3) {
+    $f3->set('content', 'press.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /useful_info', function($f3) {
+    $f3->set('content', 'useful_info.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -57,13 +86,13 @@ $f3->route('GET /contacts', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+// Column
+
 $f3->route('GET /pricing', function($f3) {
     $f3->set('content', 'pricing.htm');
-    $f3->set('files', require_once '../data/tarify.php');
+    $f3->set('files', require_once '../data/pricing.php');
     echo \Template::instance()->render('layout.htm');
 });
-
-// Column
 
 $f3->route('GET /financial_report', function($f3) {
     $f3->set('content', 'financial_report.htm');
@@ -71,15 +100,10 @@ $f3->route('GET /financial_report', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /pokazaniya_odpu', function($f3) {
-    $f3->set('content', 'pokazaniya_odpu.htm');
-    $f3->set('data', require_once '../data/pokazaniya_odpu.php');
+$f3->route('GET /house_meter_reading', function($f3) {
+    $f3->set('content', 'house_meter_reading.htm');
+    $f3->set('data', require_once '../data/house_meter_reading.php');
     echo \Template::instance()->render('layout.htm');
-});
-//////
-$f3->route('GET /pokazaniya_odpu/@year', function($f3, $params) {
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode(['params' => $params['year']]);
 });
 
 $f3->route('GET /house_report', function($f3) {

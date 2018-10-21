@@ -1,9 +1,10 @@
-<repeat group="{{ @articles }}" value="{{ @item }}">
-    <!-- Item -->
-    <div class="media">
-        <div class="media-body">
-            <h4 class="media-heading">{{ @item['Title'] }} <span class="text-muted small">{{ date('d.m.Y', strtotime(@item['Timestamp'])) }}</span></h4>
-            <p>{{ @item['Body'] | raw }}</p>
-        </div>
-    </div>
+<repeat group="{{ @posts[@page] }}" value="{{ @post }}">
+    <include href="{{ @post }}" />
 </repeat>
+
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous {{ @page=0?'disabled':'' }}"><a href="?page={{ @page - 1 }}"><span aria-hidden="true">&larr;</span> Новее</a></li>
+    <li class="next"><a href="?page={{ @page + 1 }}">Старее <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
