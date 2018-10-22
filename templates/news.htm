@@ -3,8 +3,22 @@
 </repeat>
 
 <nav aria-label="...">
-  <ul class="pager">
-    <li class="previous {{ @page=0?'disabled':'' }}"><a href="?page={{ @page - 1 }}"><span aria-hidden="true">&larr;</span> Новее</a></li>
-    <li class="next"><a href="?page={{ @page + 1 }}">Старее <span aria-hidden="true">&rarr;</span></a></li>
-  </ul>
+    <ul class="pager">
+        <check if="{{ @page == 0 }}">
+            {* <true>
+                <li class="disabled"><a href="?page={{ @page }}">Новее</a></li>
+            </true> *}
+            <false>
+                <li><a href="?page={{ @page - 1 }}">Новее</a></li>
+            </false>
+        </check>
+        <check if="{{ (@page + 1) == count(@posts) }}">
+            {* <true>
+                <li class="disabled"><a href="?page={{ @page }}">Старее</a></li>
+            </true> *}
+            <false>
+                <li><a href="?page={{ @page + 1 }}">Старее</a></li>
+            </false>
+        </check>
+    </ul>
 </nav>
