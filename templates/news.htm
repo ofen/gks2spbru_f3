@@ -1,10 +1,4 @@
-<repeat group="{{ @posts[@page] }}" value="{{ @post }}">
+<repeat group="{{ @posts }}" value="{{ @post }}">
     <include href="{{ @post }}" />
 </repeat>
-
-<nav aria-label="...">
-  <ul class="pager">
-    <li class="previous {{ @page=0?'disabled':'' }}"><a href="?page={{ @page - 1 }}"><span aria-hidden="true">&larr;</span> Новее</a></li>
-    <li class="next"><a href="?page={{ @page + 1 }}">Старее <span aria-hidden="true">&rarr;</span></a></li>
-  </ul>
-</nav>
+<button type="button" class="btn btn-primary" id="load">Еще новости</button>

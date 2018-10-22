@@ -19,7 +19,7 @@ $f3->route('GET /news', function($f3) {
 
     rsort($posts);
 
-    $posts = array_chunk($posts, 2);
+    // $posts = array_chunk($posts, 2);
 
     $page = 0;
 
@@ -31,6 +31,26 @@ $f3->route('GET /news', function($f3) {
     $f3->set('posts', $posts);
     $f3->set('content', 'news.htm');
     echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('POST /news', function($f3) {
+    header('Content-Type: application/json; charset=utf-8');
+    $posts = array();
+    foreach (glob('../data/news/*.htm') as $post) {
+        $posts[] = file_get_contents($post);
+    }
+
+    rsort($posts);
+
+    $posts = array_chunk($posts, 2);
+
+    $page = 0;
+
+    if ($_POST) {
+        $page = $_POST['page'];
+    }
+
+    echo json_encode($posts[$page]);
 });
 
 $f3->route('GET /about', function($f3) {
