@@ -41,3 +41,17 @@ $("#select_data").on("change", function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
 });
+
+var current_page = 1;
+
+$('#load').on('click', function() {
+    $.post({
+        url: '/news',
+        data: {page: current_page},
+        success: function(data) {
+            current_page += 1;
+            console.log(data);
+            $('#load').before(data);
+        }
+    });
+});

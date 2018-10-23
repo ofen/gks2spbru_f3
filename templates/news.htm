@@ -1,24 +1,4 @@
-<repeat group="{{ @posts[@page] }}" value="{{ @post }}">
+<repeat group="{{ @posts }}" value="{{ @post }}">
     <include href="{{ @post }}" />
 </repeat>
-
-<nav aria-label="...">
-    <ul class="pager">
-        <check if="{{ @page == 0 }}">
-            {* <true>
-                <li class="disabled"><a href="?page={{ @page }}">Новее</a></li>
-            </true> *}
-            <false>
-                <li><a href="?page={{ @page - 1 }}">Новее</a></li>
-            </false>
-        </check>
-        <check if="{{ (@page + 1) == count(@posts) }}">
-            {* <true>
-                <li class="disabled"><a href="?page={{ @page }}">Старее</a></li>
-            </true> *}
-            <false>
-                <li><a href="?page={{ @page + 1 }}">Старее</a></li>
-            </false>
-        </check>
-    </ul>
-</nav>
+<button type="button" class="btn btn-primary" id="load">Еще новости</button>
