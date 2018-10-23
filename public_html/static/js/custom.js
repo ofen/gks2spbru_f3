@@ -42,16 +42,30 @@ $("#select_data").on("change", function() {
     });
 });
 
-var current_page = 1;
+
+
+
+
+
+var current_page = 0;
 
 $('#load').on('click', function() {
+    var button = $(this);
     $.post({
         url: '/news',
-        data: {page: current_page},
+        data: {current_page: current_page},
         success: function(data) {
             current_page += 1;
             console.log(data);
-            $('#load').before(data);
+            data.forEach(function(item) {
+                item = `<div class="panel panel-default">
+                    <div class="panel-body">
+                        ${item}
+                    </div>
+                </div>`;
+                button.before($(item).hide().fadeIn(500));
+            });
+            
         }
     });
 });

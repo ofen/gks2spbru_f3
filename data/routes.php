@@ -11,46 +11,26 @@ $f3->route('GET /test', function($f3) {
     echo json_encode($_GET);
 });
 
-$f3->route('GET /news', function($f3) {
-    $posts = array();
-    foreach (glob('../data/news/*.htm') as $post) {
-        $posts[] = $post;
-    }
+$f3->route('GET|POST /news', function($f3) {
 
-    rsort($posts);
-
-    // $posts = array_chunk($posts, 2);
-
-    $page = 0;
-
-    if ($_GET) {
-        $page = $_GET['page'];
-    }
-
-    $f3->set('page', $page);
-    $f3->set('posts', $posts);
-    $f3->set('content', 'news.htm');
-    echo \Template::instance()->render('layout.htm');
-});
-
-$f3->route('POST /news', function($f3) {
-    header('Content-Type: application/json; charset=utf-8');
     $posts = array();
     foreach (glob('../data/news/*.htm') as $post) {
         $posts[] = file_get_contents($post);
     }
 
-    rsort($posts);
+    krsort($posts);
 
     $posts = array_chunk($posts, 2);
 
-    $page = 0;
-
-    if ($_POST) {
-        $page = $_POST['page'];
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        header('Content-Type: application/json; charset=utf-8');
+        $current_page = $_POST['current_page'];
+        echo json_encode($posts[$current_page + 1]);
+    } else {
+        $f3->set('posts', $posts[0]);
+        $f3->set('content', 'news.htm');
+        echo \Template::instance()->render('layout.htm');
     }
-
-    echo json_encode($posts[$page]);
 });
 
 $f3->route('GET /about', function($f3) {

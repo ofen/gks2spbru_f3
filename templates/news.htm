@@ -1,4 +1,10 @@
+
 <repeat group="{{ @posts }}" value="{{ @post }}">
-    <include href="{{ @post }}" />
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{ @post | raw }}
+        </div>
+    </div>
 </repeat>
+
 <button type="button" class="btn btn-primary" id="load">Еще новости</button>

@@ -25,8 +25,12 @@
         <include href="navbar.htm" />
         <div class="container">
             <!-- Content -->
-            <include href="{{ @content }}" />
+            <div id="content">
+                <include href="{{ @content }}" />
+            </div>
+
             <hr>
+            
             <!-- Footer -->
             <footer>
                 <p >{{ date('Y') }} ofen</p>
