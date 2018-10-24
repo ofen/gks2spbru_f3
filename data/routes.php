@@ -13,14 +13,7 @@ $f3->route('GET /test', function($f3) {
 
 $f3->route('GET /news', function($f3) {
 
-    $posts = array();
-    foreach (glob('../data/news/*.htm') as $post) {
-        $posts[] = file_get_contents($post);
-    }
-
-    krsort($posts);
-
-    $posts = array_chunk($posts, 2);
+    $posts = get_news(5);
 
     $f3->set('posts', $posts[0]);
     $f3->set('content', 'news.htm');
@@ -29,22 +22,12 @@ $f3->route('GET /news', function($f3) {
 
 $f3->route('POST /news', function($f3) {
 
-    $posts = array();
-    foreach (glob('../data/news/*.htm') as $post) {
-        $posts[] = file_get_contents($post);
-    }
-
-    krsort($posts);
-
-    $posts = array_chunk($posts, 2);
+    $posts = get_news(5);
 
     header('Content-Type: application/json; charset=utf-8');
     $current_page = $_POST['current_page'];
 
-    $chunk = $posts[$current_page + 1];
-    $lenght = count($posts);
-
-    echo json_encode(['result' => $chunk, 'lenght' => $lenght]);
+    echo json_encode(['result' => $posts[$current_page + 1], 'lenght' => count($posts)]);
 });
 
 $f3->route('GET /about', function($f3) {

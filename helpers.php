@@ -117,6 +117,18 @@ function validate($data, $file=null) {
     
 }
 
+function get_news($chunk_size) {
+    $data = array();
+    $files = glob('../data/news/*.htm');
+    krsort($files);
+
+    foreach ($files as $file) {
+        $data[] = file_get_contents($file);
+    }
+
+    return array_chunk($data, $chunk_size);
+}
+
 class Flash {
 
     static public function setFlash($type, $message) {
@@ -145,4 +157,4 @@ class Flash {
 
 class Validator {
 
-} 
+}
