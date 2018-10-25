@@ -114,12 +114,23 @@ function validate($data, $file=null) {
     } else {
         return 'OK';
     }
-    
 }
 
 function get_news($chunk_size) {
     $data = array();
     $files = glob('../data/news/*.htm');
+    krsort($files);
+
+    foreach ($files as $file) {
+        $data[] = file_get_contents($file);
+    }
+
+    return array_chunk($data, $chunk_size);
+}
+
+function get_press($chunk_size) {
+    $data = array();
+    $files = glob('../data/press/*.htm');
     krsort($files);
 
     foreach ($files as $file) {

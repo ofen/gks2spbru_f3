@@ -18,10 +18,10 @@
         </tr>
     </thead>
     <tbody>
-        <repeat group="{{ @files }}" key="{{ @key }}" value="{{ @value }}">
+        <repeat group="{{ @data }}" key="{{ @key }}" value="{{ @value }}">
             <tr>
-                <td>{{ @key+1 }}</td>
-                <td class="col-xs-6"><a href="#">{{ @value }}</a></td>
+                <td>{{ @key + 1 }}</td>
+                <td class="col-xs-6"><a href="{{ @value }}">{{ str_replace('_', '/', basename(@value, '.pdf')) }}</a></td>
                 <td class="col-xs-5">Нарушения устранены</td>
             </tr>
         </repeat>

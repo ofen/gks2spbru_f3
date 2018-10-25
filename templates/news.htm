@@ -1,8 +1,8 @@
 <!-- Posts -->
-<repeat group="{{ @posts }}" value="{{ @post }}">
+<repeat group="{{ @data }}" value="{{ @html }}">
     <div class="panel panel-default">
         <div class="panel-body">
-            {{ @post | raw }}
+            {{ @html | raw }}
         </div>
     </div>
 </repeat>

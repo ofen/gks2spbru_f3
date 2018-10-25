@@ -1,0 +1,10 @@
+<!-- Posts -->
+<repeat group="{{ @data }}" value="{{ @html }}">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{ @html | raw }}
+        </div>
+    </div>
+</repeat>
+<!-- Load more button -->
+<button type="button" class="btn btn-primary btn-block" id="load_more">Еще о нас</button>
