@@ -14,8 +14,9 @@ $f3->route('GET /test', function($f3) {
 $f3->route('GET /news', function($f3) {
 
     $posts = get_news(5);
+    $current_page = 0;
 
-    $f3->set('posts', $posts[0]);
+    $f3->set('posts', $posts[$current_page]);
     $f3->set('content', 'news.htm');
     echo \Template::instance()->render('layout.htm');
 });
@@ -23,10 +24,9 @@ $f3->route('GET /news', function($f3) {
 $f3->route('POST /news', function($f3) {
 
     $posts = get_news(5);
-
-    header('Content-Type: application/json; charset=utf-8');
     $current_page = $_POST['current_page'];
 
+    header('Content-Type: application/json; charset=utf-8');
     echo json_encode(['result' => $posts[$current_page + 1], 'lenght' => count($posts)]);
 });
 
