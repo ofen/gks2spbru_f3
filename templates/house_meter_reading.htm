@@ -1,26 +1,30 @@
 <repeat group="{{ @data }}" key="{{ @year }}" value="{{ @year_data }}">
-    <!-- Table -->
-    <table class="table table-hover">
-        <caption>{{ @year }}</caption>
-        <tbody>
-            <repeat group="{{ @year_data }}" key="{{ @month }}" value="{{ @links }}">
-                <tr>
-                    <td>{{ @month }}</td>
-                    <td class="col-xs-2">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-download-alt"></span> Скачать
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ @links[0] }}" target="_blank">ХВС</a></li>
-                                <li><a href="{{ @links[1] }}" target="_blank">ГВС</a></li>
-                                <li><a href="{{ @links[2] }}" target="_blank">Теп. энергия</a></li>
-                                <li><a href="{{ @links[3] }}" target="_blank">Эл. энергия</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </repeat>
-        </tbody>
-    </table>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{ @year }}</strong>
+        </div>
+        <!-- Table -->
+        <table class="table table-hover">
+            <tbody>
+                <repeat group="{{ @year_data }}" key="{{ @month }}" value="{{ @links }}">
+                    <tr>
+                        <td>{{ @month }}</td>
+                        <td class="col-xs-1">
+                            <div class="dropdown">
+                                <a href="#" type="button" data-toggle="dropdown" class="dropdown-toggle">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="{{ @links[0] }}" target="_blank">ХВС</a></li>
+                                    <li><a href="{{ @links[1] }}" target="_blank">ГВС</a></li>
+                                    <li><a href="{{ @links[2] }}" target="_blank">Теп. энергия</a></li>
+                                    <li><a href="{{ @links[3] }}" target="_blank">Эл. энергия</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </repeat>
+            </tbody>
+        </table>
+    </div>
 </repeat>

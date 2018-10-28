@@ -44,27 +44,23 @@
 </div>
 <!-- Search -->
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-sm-6">
         <div class="form-group">
             <label for="search">Поиск</label>
-            <input type="text" name="search" id="search_data" placeholder="Начните поиск" class="form-control">
+            <input type="text" name="search" id="search_data" placeholder="Начните поиск..." class="form-control">
         </div>
     </div>
 </div>
-<!-- Table -->
-<table class="table table-hover" id="data_list">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th class="col-xs-11">Адрес</th>
-        </tr>
-    </thead>
-    <tbody>
-        <repeat group="{{ @data }}" key="{{ @index }}" value="{{ @house }}">
-            <tr>
-                <td>{{ @index+1 }}</td>
-                <td>{{ @house }}</td>
-            </tr>
-        </repeat>
-    </tbody>
-</table>
+<div class="panel panel-default">
+    <!-- Table -->
+    <table class="table table-hover" id="data_list">
+        <tbody>
+            <repeat group="{{ @data }}" key="{{ @id }}" value="{{ @house }}">
+                <tr>
+                    <td>{{ @id + 1 }}</td>
+                    <td>{{ @house }}</td>
+                </tr>
+            </repeat>
+        </tbody>
+    </table>
+</div>

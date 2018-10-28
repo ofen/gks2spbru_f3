@@ -4,17 +4,21 @@
     <p><a href="http://tarifspb.ru/documents/acts/" target="_blank"><span class="glyphicon glyphicon-link"></span> http://www.meteo.nw.ru/</a></p>
 </div>
 
-<repeat group="{{ @data }}" key="{{ @season }}" value="{{ @season_data }}">
-    <!-- Table -->
-    <table class="table table-hover">
-        <caption>{{ @season }}</caption>
-        <tbody>
-            <repeat group="{{ @season_data }}" key="{{ @key }}" value="{{ @value }}">
-                <tr>
-                    <td>{{ @key }}</td>
-                    <td class="col-sm-1">{{ @value }}</td>
-                </tr>
-            </repeat>
-        </tbody>
-    </table>
+<repeat group="{{ @data }}" key="{{ @year }}" value="{{ @season_data }}">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{ @year }}</strong>
+        </div>
+        <!-- Table -->
+        <table class="table table-hover">
+            <tbody>
+                <repeat group="{{ @season_data }}" key="{{ @key }}" value="{{ @value }}">
+                    <tr>
+                        <td>{{ @key }}</td>
+                        <td class="col-sm-1">{{ @value }}</td>
+                    </tr>
+                </repeat>
+            </tbody>
+        </table>
+    </div>
 </repeat>

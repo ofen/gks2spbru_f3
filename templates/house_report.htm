@@ -1,11 +1,18 @@
-<!-- Table -->
-<table class="table table-hover">
-    <tbody>
-        <repeat group="{{ @files }}" value="{{ @file }}">
-            <tr>
-                <td>{{ @file['filename'] }}</td>
-                <td class="col-xs-2"><a href="{{ @file['link'] }}" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> Скачать</a></td>
-            </tr>
-        </repeat>
-    </tbody>
-</table>
+<repeat group="{{ @data }}" key="{{ @key }}" value="{{ @files }}">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{ @key }}</strong>
+        </div>
+        <!-- Table -->
+        <table class="table">
+            <tbody>
+                <repeat group="{{ @files }}" value="{{ @file }}">
+                    <tr>
+                        <td>{{ @file['filename'] }}</td>
+                        <td class="col-xs-2"><a href="{{ @file['link'] }}" target="_blank">Скачать</a></td>
+                    </tr>
+                </repeat>
+            </tbody>
+        </table>
+    </div>
+</repeat>

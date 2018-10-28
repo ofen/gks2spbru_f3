@@ -56,15 +56,19 @@ $f3->route('GET /house_list', function($f3) {
 });
 
 $f3->route('GET /order', function($f3) {
-    $files = array();
-    $dirs = array_diff(scandir('doc/order/'), array('.', '..'));
+    $path = 'doc/order/';
+
+    $data = array();
+    $dirs = array_diff(scandir($path), array('.', '..'));
     foreach($dirs as $dir) {
-        $files[$dir] = glob("doc/order/{$dir}/*");
+        if(is_dir($path . $dir)) {
+            $data[$dir] = glob($path . $dir . '/*.pdf');
+        }
     }
-    
+    krsort($data);
     // header('Content-Type: application/json; charset=utf-8');
-    // echo json_encode($files);
-    $f3->set('data', $files);
+    // echo json_encode($data);
+    $f3->set('data', $data);
     $f3->set('content', 'order.htm');
     echo \Template::instance()->render('layout.htm');
 });
@@ -123,7 +127,7 @@ $f3->route('GET /house_meter_reading', function($f3) {
 
 $f3->route('GET /house_report', function($f3) {
     $f3->set('content', 'house_report.htm');
-    $f3->set('files', require_once '../data/house_report.php');
+    $f3->set('data', require_once '../data/house_report.php');
     echo \Template::instance()->render('layout.htm');
 });
 

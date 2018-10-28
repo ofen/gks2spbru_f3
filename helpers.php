@@ -140,6 +140,36 @@ function get_press($chunk_size) {
     return array_chunk($data, $chunk_size);
 }
 
+function get_dir($path) {
+    $result = array();
+    $dirs = array_diff(scandir($path), array('.', '..'));
+    foreach($dirs as $dir) {
+        if(is_dir($path . $dir)) {
+            $result[$dir] = glob($path . $dir . '/*.pdf');
+        }
+    }
+    return $result;
+}
+
+function filesize_formatted($file)
+{
+    $bytes = filesize($file);
+
+    if ($bytes >= 1073741824) {
+        return number_format($bytes / 1073741824, 2) . ' Гб';
+    } elseif ($bytes >= 1048576) {
+        return number_format($bytes / 1048576, 2) . ' Мб';
+    } elseif ($bytes >= 1024) {
+        return number_format($bytes / 1024, 2) . ' Кб';
+    } elseif ($bytes > 1) {
+        return $bytes . ' байт';
+    } elseif ($bytes == 1) {
+        return '1 байт';
+    } else {
+        return '0 байт';
+    }
+}
+
 class Flash {
 
     static public function setFlash($type, $message) {
