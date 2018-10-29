@@ -2,11 +2,17 @@
     <!-- Table -->
     <table class="table table-hover">
         <caption>{{ @year }}</caption>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Размер</th>
+            </tr>
+        </thead>
         <tbody>
-            <repeat group="{{ @year_data }}" key="{{ @filename }}" value="{{ @link }}">
+            <repeat group="{{ @year_data }}" key="{{ @filename }}" value="{{ @filelink }}">
                 <tr>
-                    <td>{{ @filename }}</td>
-                    <td class="col-xs-2"><a href="{{ @link }}" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> Скачать</a></td>
+                    <td class="col-xs-10"><a href="{{ @filelink }}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span> {{ @filename }}</a></td>
+                    <td>{{ filesize_formatted(@filelink) }}</td>
                 </tr>
             </repeat>
         </tbody>

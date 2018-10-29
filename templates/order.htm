@@ -1,22 +1,19 @@
 <repeat group="{{ @data }}" key="{{ @dir }}" value="{{ @files }}">
-    <h4>{{ @dir }}</h4>
-    <div class="row">
-        <repeat group="{{ @files }}" key="{{ @id }}" value="{{ @file }}">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="media">
-                            <div class="media-left media-middle">
-                                <span class="fa fa-file-pdf-o fa-5x"></span>
-                            </div>
-                            <div class="media-body">
-                                {{ basename(@file) }}<br>
-                                <a href="{{ @file }}" target="_blank" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span> Скачать</a>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </repeat>
-    </div>      
+    <table class="table table-hover">
+        <caption>{{ @dir }}</caption>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Размер</th>
+            </tr>
+        </thead>
+        <tbody>
+            <repeat group="{{ @files }}" value="{{ @file }}">
+                <tr>
+                    <td class="col-xs-10"><a href="{{ @file }}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span> {{ basename(@file) }}</a></td>
+                    <td>{{ filesize_formatted(@file) }}</td>
+                </tr>
+            </repeat>
+        </tbody>
+    </table>      
 </repeat>

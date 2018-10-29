@@ -5,20 +5,22 @@
 </div>
 
 <repeat group="{{ @data }}" key="{{ @year }}" value="{{ @season_data }}">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <strong>{{ @year }}</strong>
-        </div>
-        <!-- Table -->
-        <table class="table table-hover">
-            <tbody>
-                <repeat group="{{ @season_data }}" key="{{ @key }}" value="{{ @value }}">
-                    <tr>
-                        <td>{{ @key }}</td>
-                        <td class="col-sm-1">{{ @value }}</td>
-                    </tr>
-                </repeat>
-            </tbody>
-        </table>
-    </div>
+    <!-- Table -->
+    <table class="table table-hover">
+        <caption>{{ @year }}</caption>
+        <thead>
+            <tr>
+                <th>Месяц</th>
+                <th>Температура</th>
+            </tr>
+        </thead>
+        <tbody>
+            <repeat group="{{ @season_data }}" key="{{ @key }}" value="{{ @value }}">
+                <tr>
+                    <td class="col-xs-10">{{ @key }}</td>
+                    <td>{{ @value }}</td>
+                </tr>
+            </repeat>
+        </tbody>
+    </table>
 </repeat>
