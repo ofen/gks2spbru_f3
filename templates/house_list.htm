@@ -51,16 +51,21 @@
         </div>
     </div>
 </div>
-<div class="panel panel-default">
-    <!-- Table -->
-    <table class="table table-hover" id="data_list">
-        <tbody>
-            <repeat group="{{ @data }}" key="{{ @id }}" value="{{ @house }}">
-                <tr>
-                    <td>{{ @id + 1 }}</td>
-                    <td>{{ @house }}</td>
-                </tr>
-            </repeat>
-        </tbody>
-    </table>
-</div>
+
+<!-- Table -->
+<table class="table table-hover" id="data_list">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Адрес</th>
+        </tr>
+    </thead>
+    <tbody>
+        <repeat group="{{ @data }}" key="{{ @id }}" value="{{ @house }}">
+            <tr>
+                <td>{{ @id + 1 }}</td>
+                <td>{{ @house }}</td>
+            </tr>
+        </repeat>
+    </tbody>
+</table>

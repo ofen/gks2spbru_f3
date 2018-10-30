@@ -1,17 +1,18 @@
 <repeat group="{{ @data }}" key="{{ @dir }}" value="{{ @files }}">
+    <!-- Table -->
     <table class="table table-hover">
         <caption>{{ @dir }}</caption>
         <thead>
             <tr>
                 <th>Имя</th>
-                <th>Размер</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <repeat group="{{ @files }}" value="{{ @file }}">
+            <repeat group="{{ @files }}" value="{{ @filelink }}">
                 <tr>
-                    <td class="col-xs-10"><a href="{{ @file }}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span> {{ basename(@file) }}</a></td>
-                    <td>{{ filesize_formatted(@file) }}</td>
+                    <td class="col-xs-10">{{ basename(@filelink, '.pdf') }}</td>
+                    <td><a href="{{ @filelink }}" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> Скачать</a></td>
                 </tr>
             </repeat>
         </tbody>

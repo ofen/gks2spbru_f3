@@ -3,14 +3,14 @@
     <thead>
         <tr>
             <th>Имя</th>
-            <th>Размер</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <repeat group="{{ @files }}" key="{{ @filename }}" value="{{ @filelink }}">
             <tr>
-                <td class="col-xs-10"><a href="{{ @filelink }}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span> {{ @filename }}</a></td>
-                <td>{{ filesize_formatted(@filelink) }}</td>
+                <td class="col-xs-10">{{ @filename }}</td>
+                <td><a href="{{ @filelink }}" target="_blank" class="btn btn-primary {{ file_exists(@filelink)?'':'disabled'}}"><span class="glyphicon glyphicon-download-alt"></span> Скачать</a></td>
             </tr>
         </repeat>
     </tbody>

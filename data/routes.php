@@ -50,10 +50,29 @@ $f3->route('GET /jobs', function($f3) {
 });
 
 $f3->route('GET /house_list', function($f3) {
-    $f3->set('content', 'house_list.htm');
-    $f3->set('data', require_once '../data/house_list.php');
-    echo \Template::instance()->render('layout.htm');
+    $data = array_chunk(require_once '../data/house_list.php', 10);
+
+    if ($_GET['page']) {
+        $chunk_num = $_GET['page'];
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data[$chunk_num]);
+    } else {
+        $f3->set('content', 'house_list.htm');
+        $f3->set('data', $data[0]);
+        echo \Template::instance()->render('layout.htm');
+    }
 });
+
+$f3->route('GET /house_management_contract', function($f3) {
+    $file = 'doc/dogovor_upravleniya_mkd.pdf';
+
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: inline; filename="dogovor_upravleniya_mkd.pdf"');
+    header('Content-Length: ' . filesize($file));
+
+    echo readfile($file);
+});
+
 
 $f3->route('GET /order', function($f3) {
     $path = 'doc/order/';
@@ -106,6 +125,16 @@ $f3->route('GET /contacts', function($f3) {
 });
 
 // Column
+
+$f3->route('GET /paid_service', function($f3) {
+    $file = 'doc/platnie_uslugi_2014.pdf';
+
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: inline; filename="platnie_uslugi.pdf"');
+    header('Content-Length: ' . filesize($file));
+
+    echo readfile($file);
+});
 
 $f3->route('GET /pricing', function($f3) {
     $f3->set('content', 'pricing.htm');

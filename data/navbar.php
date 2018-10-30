@@ -9,7 +9,7 @@ return array(
         'Режим работы' => '/working_hours',
         'Вакансии' => '/jobs',
         'Список МКД' => '/house_list',
-        'Проект договора управления' => '/doc/dogovor_upravleniya.pdf',
+        'Договор управления МКД' => '/house_management_contract',
         'Раскрытие информации' => 'https://www.reformagkh.ru/mymanager/profile/6743234/',
         'Административная ответственность' => '/order',
         'Нас благодарят' => '/thank_you_letter',
@@ -18,7 +18,7 @@ return array(
         'Контакты' => '/contacts',
     ],
     'Услуги' => [
-        'Платные услуги' => '#',
+        'Платные услуги' => '/paid_service',
         'Тарифы' => '/pricing',
         'Качество услуг' => '#',
         'Энергоэффективность' => '#',

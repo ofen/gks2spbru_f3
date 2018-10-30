@@ -1,30 +1,31 @@
 <repeat group="{{ @data }}" key="{{ @year }}" value="{{ @year_data }}">
-    <repeat group="{{ @year_data }}" key="{{ @month }}" value="{{ @filelinks }}">
-        <!-- Table -->
-        <table class="table table-hover">
-            <caption>{{ @month }} {{ @year }}</caption>
-            <thead>
-                <th>Имя</th>
-                <th>Размер</th>
-            </thead>
-            <tbody>
+    <!-- Table -->
+    <table class="table table-hover">
+        <caption>{{ @year }}</caption>
+        <thead>
+            <tr>
+                <th>Месяц</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <repeat group="{{ @year_data }}" key="{{ @month }}" value="{{ @files }}">
                 <tr>
-                    <td class="col-xs-10"><a href="{{ @filelinks[0] }}" target="_blank">ХВС</a>
-                    <td>{{ filesize_formatted(@filelinks[0]) }}</td>
-                </td>
-                <tr>
-                    <td class="col-xs-10"><a href="{{ @filelinks[1] }}" target="_blank">ГВС</a>
-                    <td>{{ filesize_formatted(@filelinks[1]) }}</td>
-                </td>
-                <tr>
-                    <td class="col-xs-10"><a href="{{ @filelinks[2] }}" target="_blank">Теп. энергия</a>
-                    <td>{{ filesize_formatted(@filelinks[2]) }}</td>
-                </td>
-                <tr>
-                    <td class="col-xs-10"><a href="{{ @filelinks[3] }}" target="_blank">Эл. энергия</a>
-                    <td>{{ filesize_formatted(@filelinks[3]) }}</td>
+                    <td class="col-xs-10">{{ @month }}</td>
+                    <td>
+                        <!-- Dropdown button -->
+                        <div class="dropdown">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-download-alt"></span> Скачать</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="{{ @files[0] }}" target="_blank">ХВС</a></li>
+                                <li><a href="{{ @files[1] }}" target="_blank">ГВС</a></li>
+                                <li><a href="{{ @files[2] }}" target="_blank">Эл. энергия</a></li>
+                                <li><a href="{{ @files[3] }}" target="_blank">Теп. энергия</a></li>
+                            </ul>
+                        </div>   
+                    </td>
                 </tr>
-            </tbody>
-        </table>
-    </repeat>
+            </repeat>
+        </tbody>
+    </table>
 </repeat>
