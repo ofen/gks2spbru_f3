@@ -5,27 +5,20 @@ $f3->route('GET /', function($f3) {
     $f3->set('content', 'index.htm');
     echo \Template::instance()->render('layout.htm');
 });
-// Test
-$f3->route('GET /test', function($f3) {
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($_GET);
-});
 
 $f3->route('GET /news', function($f3) {
-    $chunks = get_news(5);
+    $data = get_news(5);
     $current_page = 0;
 
-    $f3->set('data', $chunks[$current_page]);
-    $f3->set('content', 'news.htm');
-    echo \Template::instance()->render('layout.htm');
-});
-
-$f3->route('POST /news', function($f3) {
-    $chunks = get_news(5);
-    $current_page = $_POST['current_page'];
-
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode(['result' => $chunks[$current_page + 1], 'lenght' => count($chunks)]);
+    if ($_GET['page']) {
+        $current_page = $_GET['page'];
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['result' => $data[$current_page], 'lenght' => count($data)]);
+    } else {
+        $f3->set('data', $data[$current_page]);
+        $f3->set('content', 'news.htm');
+        echo \Template::instance()->render('layout.htm');
+    }
 });
 
 $f3->route('GET /about', function($f3) {
@@ -50,17 +43,9 @@ $f3->route('GET /jobs', function($f3) {
 });
 
 $f3->route('GET /house_list', function($f3) {
-    $data = array_chunk(require_once '../data/house_list.php', 10);
-
-    if ($_GET['page']) {
-        $chunk_num = $_GET['page'];
-        header('Content-Type: application/json; charset=utf-8');
-        echo json_encode($data[$chunk_num]);
-    } else {
-        $f3->set('content', 'house_list.htm');
-        $f3->set('data', $data[0]);
-        echo \Template::instance()->render('layout.htm');
-    }
+    $f3->set('content', 'house_list.htm');
+    $f3->set('data', require_once '../data/house_list.php');
+    echo \Template::instance()->render('layout.htm');
 });
 
 $f3->route('GET /house_management_contract', function($f3) {
@@ -98,20 +83,18 @@ $f3->route('GET /thank_you_letter', function($f3) {
 });
 
 $f3->route('GET /press', function($f3) {
-    $chunks = get_press(5);
+    $data = get_press(5);
     $current_page = 0;
 
-    $f3->set('data', $chunks[$current_page]);
-    $f3->set('content', 'press.htm');
-    echo \Template::instance()->render('layout.htm');
-});
-
-$f3->route('POST /press', function($f3) {
-    $chunks = get_press(5);
-    $current_page = $_POST['current_page'];
-
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode(['result' => $chunks[$current_page + 1], 'lenght' => count($chunks)]);
+    if ($_GET['page']) {
+        $current_page = $_GET['page'];
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['result' => $data[$current_page], 'lenght' => count($data)]);
+    } else {
+        $f3->set('data', $data[$current_page]);
+        $f3->set('content', 'press.htm');
+        echo \Template::instance()->render('layout.htm');
+    }
 });
 
 $f3->route('GET /useful_info', function($f3) {

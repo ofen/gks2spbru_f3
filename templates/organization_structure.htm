@@ -6,7 +6,7 @@
             <div class="media-left">
                 <check if="{{ @employee['photo'] }} != '#'">
                     <true>
-                        <img class="media-object img-thumbnail" src="{{ @employee['photo'] }}" alt="photo">
+                        <img class="media-object img-thumbnail" src="{{ @employee['photo'] }}" alt="photo" style="width: 150px;">
                     </true>
                     <false>
                         <img class="media-object img-thumbnail" src="holder.js/150x150" alt="photo">

@@ -46,11 +46,10 @@ $(document).ready(function() {
 
     $('#load_more').on('click', function() {
         var button = $(this);
-        $.post({
+        $.get({
             url: '#',
-            data: {current_page: current_page},
+            data: {page: current_page += 1},
             success: function(data) {
-                current_page += 1;
                 console.log(data);
                 
                 data.result.forEach(function(result) {
