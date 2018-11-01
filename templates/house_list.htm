@@ -43,13 +43,9 @@
     </div>
 </div>
 <!-- Search -->
-<div class="row">
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="search">Поиск</label>
-            <input type="text" name="search" id="search_data" placeholder="Начните поиск..." class="form-control">
-        </div>
-    </div>
+<div class="form-group">
+    <label for="search">Поиск</label>
+    <input type="text" name="search" id="search_data" placeholder="Начните поиск..." class="form-control">
 </div>
 
 <!-- Table -->
@@ -58,13 +54,17 @@
         <tr>
             <th>#</th>
             <th>Адрес</th>
+            <th>ЭУ</th>
+            <th>ДУ</th>
         </tr>
     </thead>
     <tbody>
         <repeat group="{{ @data }}" key="{{ @id }}" value="{{ @house }}">
             <tr>
                 <td>{{ @id + 1 }}</td>
-                <td>{{ @house }}</td>
+                <td>{{ @house[0] }}</td>
+                <td>{{ @house[1] }}</td>
+                <td>{{ @house[2] }}</td>
             </tr>
         </repeat>
     </tbody>

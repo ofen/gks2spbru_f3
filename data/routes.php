@@ -125,10 +125,19 @@ $f3->route('GET /pricing', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+$f3->route('GET /cost_reduction', function($f3) {
+    $f3->set('content', 'cost_reduction.htm');
+    echo \Template::instance()->render('layout.htm');
+});
+
 $f3->route('GET /financial_report', function($f3) {
     $f3->set('content', 'financial_report.htm');
     $f3->set('files', require_once '../data/financial_report.php');
     echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /house_report', function($f3) {
+    $f3->reroute('https://www.reformagkh.ru/mymanager/profile/6743234/');
 });
 
 $f3->route('GET /house_meter_reading', function($f3) {
@@ -137,9 +146,14 @@ $f3->route('GET /house_meter_reading', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /house_report', function($f3) {
-    $f3->set('content', 'house_report.htm');
-    $f3->set('data', require_once '../data/house_report.php');
+$f3->route('GET /house_maintenance', function($f3) {
+    $f3->set('content', 'house_maintenance.htm');
+    $f3->set('data', require_once '../data/house_maintenance.php');
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /energy_efficiency', function($f3) {
+    $f3->set('content', 'energy_efficiency.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -159,8 +173,6 @@ $f3->route('GET /to_vdgo', function($f3) {
     $f3->set('data', require_once '../data/to_vdgo.php');
     echo \Template::instance()->render('layout.htm');
 });
-
-// Column
 
 $f3->route('GET|POST /reception', function($f3) {
     $f3->set('content', 'reception.htm');
