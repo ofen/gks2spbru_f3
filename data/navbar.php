@@ -21,7 +21,7 @@ return array(
         'Подомовая отчетность' => '/house_report',
         'Показания ОДПУ' => '/house_meter_reading',
         'Текущий ремонт' => '/house_maintenance',
-        'Энергоэффективность' => '#',
+        'Энергоэффективность' => '/energy_efficiency',
         'Снижению расходов' => '/cost_reduction',
         'Среднемесячная температура' => '/average_monthly_temperature',
         'Фотоотчёт по текущему и капитальному ремонту' => '#',
