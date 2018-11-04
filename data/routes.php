@@ -154,6 +154,7 @@ $f3->route('GET /house_maintenance', function($f3) {
 
 $f3->route('GET /energy_efficiency', function($f3) {
     $f3->set('content', 'energy_efficiency.htm');
+    $f3->set('files', require_once '../data/energy_efficiency.php');
     echo \Template::instance()->render('layout.htm');
 });
 
