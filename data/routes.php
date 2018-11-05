@@ -7,15 +7,25 @@ $f3->route('GET /', function($f3) {
 });
 
 $f3->route('GET /news', function($f3) {
-    $data = get_news(5);
+    $files = get_news(5);
     $current_page = 0;
+    $data = array();
 
     if ($_GET['page']) {
         $current_page = $_GET['page'];
+
+        foreach($files[$current_page] as $file) {
+            $data[] = file_get_contents($file);
+        }
+
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode(['result' => $data[$current_page], 'lenght' => count($data)]);
+        echo json_encode(['result' => $data, 'lenght' => count($files)]);
     } else {
-        $f3->set('data', $data[$current_page]);
+        foreach($files[$current_page] as $file) {
+            $data[] = file_get_contents($file);
+        }
+
+        $f3->set('data', $data);
         $f3->set('content', 'news.htm');
         echo \Template::instance()->render('layout.htm');
     }
@@ -58,7 +68,6 @@ $f3->route('GET /house_management_contract', function($f3) {
     echo readfile($file);
 });
 
-
 $f3->route('GET /order', function($f3) {
     $path = 'doc/order/';
 
@@ -66,7 +75,9 @@ $f3->route('GET /order', function($f3) {
     $dirs = array_diff(scandir($path), array('.', '..'));
     foreach($dirs as $dir) {
         if(is_dir($path . $dir)) {
-            $data[$dir] = glob($path . $dir . '/*.pdf');
+            $files = glob($path . $dir . '/*.pdf', GLOB_NOSORT);
+            asort($files, SORT_NATURAL);
+            $data[$dir] = $files;
         }
     }
     krsort($data);
@@ -83,15 +94,24 @@ $f3->route('GET /thank_you_letter', function($f3) {
 });
 
 $f3->route('GET /press', function($f3) {
-    $data = get_press(5);
+    $files = get_press(5);
     $current_page = 0;
+    $data = array();
 
     if ($_GET['page']) {
         $current_page = $_GET['page'];
+        foreach($files[$current_page] as $file) {
+            $data[] = file_get_contents($file);
+        }
+
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode(['result' => $data[$current_page], 'lenght' => count($data)]);
+        echo json_encode(['result' => $data, 'lenght' => count($files)]);
     } else {
-        $f3->set('data', $data[$current_page]);
+        foreach($files[$current_page] as $file) {
+            $data[] = file_get_contents($file);
+        }
+
+        $f3->set('data', $data);
         $f3->set('content', 'press.htm');
         echo \Template::instance()->render('layout.htm');
     }

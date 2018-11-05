@@ -117,27 +117,17 @@ function validate($data, $file=null) {
 }
 
 function get_news($chunk_size) {
-    $data = array();
-    $files = glob('../data/news/*.htm');
-    krsort($files);
+    $files = glob('../data/news/*.htm', GLOB_NOSORT);
+    rsort($files, SORT_NATURAL);
 
-    foreach ($files as $file) {
-        $data[] = file_get_contents($file);
-    }
-
-    return array_chunk($data, $chunk_size);
+    return array_chunk($files, $chunk_size);
 }
 
 function get_press($chunk_size) {
-    $data = array();
-    $files = glob('../data/press/*.htm');
-    krsort($files);
+    $files = glob('../data/press/*.htm', GLOB_NOSORT);
+    rsort($files, SORT_NATURAL);
 
-    foreach ($files as $file) {
-        $data[] = file_get_contents($file);
-    }
-
-    return array_chunk($data, $chunk_size);
+    return array_chunk($files, $chunk_size);
 }
 
 function get_dir($path) {
