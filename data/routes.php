@@ -233,7 +233,7 @@ $f3->route('POST /reception', function($f3) {
         $mail->Body = "IP: {$_SERVER['REMOTE_ADDR']}\nИмя: {$_POST['firstname']}\nФамилия: {$_POST['lastname']}\nАдрес: {$_POST['address']}\nТелефон: {$_POST['phone']}\nEmail: {$_POST['email']}\nТема обращения: {$_POST['subject']}\nТекст обращения:\n{$_POST['body']}\n";
 
         if(!$mail->send()) {
-            echo json_encode(['result' => 'Ошибка отправки сообщени' . $mail->ErrorInfo]);
+            echo json_encode(['result' => 'Ошибка отправки сообщени']);
         } else {
             echo json_encode(['result' => 'OK']);
         }
