@@ -202,7 +202,42 @@ $f3->route('GET|POST /reception', function($f3) {
 
 $f3->route('POST /reception', function($f3) {
     header('Content-Type: application/json; charset=utf-8');
-    echo json_encode(['result' => validate($_POST, $_FILES)]);
+    $errors = validate($_POST, $_FILES);
+    if ($errors) {
+        echo json_encode(['result' => $errors]);
+    } else {
+        $mail = new \PHPMailer\PHPMailer\PHPMailer;
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.yandex.ru';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'username';
+        $mail->Password = 'password';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
+        $mail->setFrom('username@yandex.ru', 'gks2spb.ru mailer');
+        $mail->addAddress('admin@gmail.com');
+
+        $mail->WordWrap = 50;
+        $mail->CharSet = 'utf-8';
+
+        if($_FILES) {
+            $tmp_name = $_FILES['attachment']['tmp_name'];
+            $filename = $_FILES['attachment']['name'];
+            move_uploaded_file($tmp_name, "tmp/{$filename}");
+            $mail->addAttachment("tmp/{$filename}");
+        }
+        
+        $mail->Subject = 'Интернет приемная';
+        $mail->Body = "IP: {$_SERVER['REMOTE_ADDR']}\nИмя: {$_POST['firstname']}\nФамилия: {$_POST['lastname']}\nАдрес: {$_POST['address']}\nТелефон: {$_POST['phone']}\nEmail: {$_POST['email']}\nТема обращения: {$_POST['subject']}\nТекст обращения:\n{$_POST['body']}\n";
+
+        if(!$mail->send()) {
+            echo json_encode(['result' => 'Ошибка отправки сообщени' . $mail->ErrorInfo]);
+        } else {
+            echo json_encode(['result' => 'OK']);
+        }
+    }  
 });
 
 // class Page {

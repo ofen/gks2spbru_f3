@@ -1,6 +1,7 @@
 {
     "require": {
-        "bcosca/fatfree": "^3.6"
+        "bcosca/fatfree": "^3.6",
+        "phpmailer/phpmailer": "^6.0"
     },
     "autoload": {
         "files": ["helpers.php"]

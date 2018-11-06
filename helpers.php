@@ -92,7 +92,6 @@ function validate($data, $file=null) {
         $errors['body'] = 'Текст сообщения обязателен';
     }
 
-    $tmp_name = $file['attachment']['tmp_name'];
     $file_name = $file['attachment']['name'];
     $file_size = $file['attachment']['size'];
     $ext = pathinfo($file_name, PATHINFO_EXTENSION);
@@ -100,11 +99,9 @@ function validate($data, $file=null) {
     if ($file_size > 0) {
 
         if (!in_array($ext, $file_extensions)) {
-            $errors['attachment'] = $file;
+            $errors['attachment'] = 'Некорректный тип файла';
         } elseif ($file_size > $max_size) {
             $errors['attachment'] = 'Файл слишком велик';
-        } else {
-            move_uploaded_file($tmp_name, "tmp/{$file_name}");
         }
     }
     
@@ -112,7 +109,7 @@ function validate($data, $file=null) {
     if ($errors) {
         return $errors;
     } else {
-        return 'OK';
+        return null;
     }
 }
 

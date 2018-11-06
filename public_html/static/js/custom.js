@@ -1,16 +1,18 @@
 $(document).ready(function() {
+
     $('form').on('submit', function(e) {
         e.preventDefault();
         var form = $(this);
 
         $.post({
+            url: '#',
             data: new FormData(this),
             contentType: false,
             cache: false,
             processData: false,
             success: function(data) {
                 console.log(data);
-                $('div').find('.has-error').remove();
+                $('div').removeClass('has-error')
                 $('div').find('.help-block').remove();
 
                 if (data.result == 'OK') {
