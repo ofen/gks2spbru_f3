@@ -139,9 +139,9 @@ $f3->route('GET /paid_service', function($f3) {
     echo readfile($file);
 });
 
-$f3->route('GET /pricing', function($f3) {
-    $f3->set('content', 'pricing.htm');
-    $f3->set('files', require_once '../data/pricing.php');
+$f3->route('GET /utility_rate', function($f3) {
+    $f3->set('content', 'utility_rate.htm');
+    $f3->set('data', require_once '../data/utility_rate.php');
     echo \Template::instance()->render('layout.htm');
 });
 

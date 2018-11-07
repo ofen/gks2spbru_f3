@@ -1,7 +1,7 @@
-<repeat group="{{ @data }}" key="{{ @type }}" value="{{ @files }}">
+<repeat group="{{ @data }}" key="{{ @year }}" value="{{ @files }}">
     <!-- Table -->
     <table class="table table-hover">
-        <caption>{{ @type }}</caption>
+        <caption>Текущий ремонт<br><span class="label label-primary">{{ @year }}</span></caption>
         <thead>
             <tr>
                 <th>Имя</th>

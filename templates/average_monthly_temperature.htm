@@ -4,10 +4,10 @@
     <p><a href="http://tarifspb.ru/documents/acts/" target="_blank"><span class="glyphicon glyphicon-link"></span> http://www.meteo.nw.ru/</a></p>
 </div>
 
-<repeat group="{{ @data }}" key="{{ @year }}" value="{{ @season_data }}">
+<repeat group="{{ @data }}" key="{{ @season }}" value="{{ @season_data }}">
     <!-- Table -->
     <table class="table table-hover">
-        <caption>{{ @year }}</caption>
+        <caption>Среднемесячная температура<br><span class="label label-primary">{{ @season }}</span></caption>
         <thead>
             <tr>
                 <th>Месяц</th>
