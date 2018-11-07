@@ -59,10 +59,10 @@ $f3->route('GET /house_list', function($f3) {
 });
 
 $f3->route('GET /house_management_contract', function($f3) {
-    $file = 'doc/dogovor_upravleniya_mkd.pdf';
+    $file = 'doc/Договор_управления_МКД.pdf';
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="dogovor_upravleniya_mkd.pdf"');
+    header('Content-Disposition: inline; filename="Договор_управления_МКД.pdf"');
     header('Content-Length: ' . filesize($file));
 
     echo readfile($file);
