@@ -1,47 +1,8 @@
 <!-- Button -->
-<!-- <p>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#reception_hours">
-        <span class="glyphicon glyphicon-file"></span> Расторгнутые договора управления
-    </button>
-</p> -->
-<!-- Modal dialog -->
-<div class="modal fade" tabindex="-1" role="dialog" id="reception_hours">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4>2012 год</h4>
-                <p>Балтийская ул., д.29, лит.А Открытый конкурс</p>
-                <p>Баррикадная ул., д.36, лит.А Открытый конкурс</p>
-                <p>Губина ул., д.11, лит.А Открытый конкурс</p>
-                <p>Косинова ул., д.6, лит.А Открытый конкурс</p>
-                <p>Краснопутиловская ул., д.11, лит.А Открытый конкурс</p>
-                <p>Маршала Говорова ул., д.8, лит.А Открытый конкурс</p>
-                <p>Маршала Говорова ул., д.8, лит.Б Открытый конкурс</p>
-                <p>Оборонная ул., д.29, лит.А Открытый конкурс</p>
-                <p>Промышленная ул., д.10, лит.А Открытый конкурс</p>
-                <p>Промышленная ул., д.14, лит.А Открытый конкурс</p>
-                <p>Промышленная ул., д.16, лит.А Открытый конкурс</p>
-                <p>Севастопольская ул., д.3, лит.А Открытый конкурс</p>
-                <p>Севастопольская ул., д.5, лит.А Открытый конкурс</p>
-                <p>Стачек пр-кт., д.13, лит.А Открытый конкурс</p>
-                <p>Трефолева ул., д.18, лит.К Открытый конкурс</p>
-                <h4>2013 год</h4>
-                <p>----</p>
-                <h4>2014 год</h4>
-                <p>----</p>
-                <h4>2015 год</h4>
-                <p>----</p>
-                <h4>2016 год</h4>
-                <p>----</p>
-                <h4>2017 год</h4>
-                <p>----</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
-            </div>
-        </div>
-    </div>
-</div>
+<p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#out_of_service">Более не обслуживаются</button>
+</p>
+
 <!-- Search -->
 <div class="form-group">
     <label for="search">Поиск</label>
@@ -59,13 +20,45 @@
         </tr>
     </thead>
     <tbody>
-        <repeat group="{{ @data }}" key="{{ @id }}" value="{{ @house }}">
+        <repeat group="{{ @data['in_service'] }}" key="{{ @id }}" value="{{ @house_data }}">
             <tr>
                 <td>{{ @id + 1 }}</td>
-                <td>{{ @house[0] }}</td>
-                <td>{{ @house[1] }}</td>
-                <td>{{ @house[2] }}</td>
+                <td>{{ @house_data[0] }}</td>
+                <td>{{ @house_data[1] }}</td>
+                <td>{{ @house_data[2] }}</td>
             </tr>
         </repeat>
     </tbody>
 </table>
+
+<!-- Modal dialog -->
+<div class="modal fade" tabindex="-1" role="dialog" id="out_of_service">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <repeat group="{{ @data['out_of_service'] }}" key="{{ @year }}" value="{{ @year_data }}">
+                    <table class="table table-hover">
+                        <caption>Более не обслуживаются<br><span class="label label-primary">{{ @year }}</span></caption>
+                        <thead>
+                            <tr>
+                                <th>Адрес</th>
+                                <th>Примечание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <repeat group="{{ @year_data }}" value="{{ @_house_data }}">
+                                <tr>
+                                    <td class="col-xs-8">{{ @_house_data[0] }}</td>
+                                    <td>{{ @_house_data[1] }}</td>
+                                </tr>
+                            </repeat>
+                        </tbody>
+                    </table>
+                </repeat>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>

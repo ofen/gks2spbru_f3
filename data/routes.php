@@ -68,8 +68,8 @@ $f3->route('GET /house_management_contract', function($f3) {
     echo readfile($file);
 });
 
-$f3->route('GET /order', function($f3) {
-    $path = 'doc/order/';
+$f3->route('GET /law', function($f3) {
+    $path = 'doc/law/';
 
     $data = array();
     $dirs = array_diff(scandir($path), array('.', '..'));
@@ -84,7 +84,7 @@ $f3->route('GET /order', function($f3) {
     // header('Content-Type: application/json; charset=utf-8');
     // echo json_encode($data);
     $f3->set('data', $data);
-    $f3->set('content', 'order.htm');
+    $f3->set('content', 'law.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -189,9 +189,9 @@ $f3->route('GET /purchases', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /to_vdgo', function($f3) {
-    $f3->set('content', 'to_vdgo.htm');
-    $f3->set('data', require_once '../data/to_vdgo.php');
+$f3->route('GET /gas_equipment_service_schedule', function($f3) {
+    $f3->set('content', 'gas_equipment_service_schedule.htm');
+    $f3->set('data', require_once '../data/gas_equipment_service_schedule.php');
     echo \Template::instance()->render('layout.htm');
 });
 
