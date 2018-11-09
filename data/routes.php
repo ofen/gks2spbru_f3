@@ -160,15 +160,15 @@ $f3->route('GET /house_report', function($f3) {
     $f3->reroute('https://www.reformagkh.ru/mymanager/profile/6743234/');
 });
 
-$f3->route('GET /house_meter_reading', function($f3) {
-    $f3->set('content', 'house_meter_reading.htm');
-    $f3->set('data', require_once '../data/house_meter_reading.php');
+$f3->route('GET /meter_reading', function($f3) {
+    $f3->set('content', 'meter_reading.htm');
+    $f3->set('data', require_once '../data/meter_reading.php');
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /house_maintenance', function($f3) {
-    $f3->set('content', 'house_maintenance.htm');
-    $f3->set('data', require_once '../data/house_maintenance.php');
+$f3->route('GET /maintenance_report', function($f3) {
+    $f3->set('content', 'maintenance_report.htm');
+    $f3->set('data', require_once '../data/maintenance_report.php');
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -184,6 +184,22 @@ $f3->route('GET /average_monthly_temperature', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+$f3->route('GET /weekly_report', function($f3) {
+    if($_GET['maintenance']) {
+        // header('Content-Type: application/json; charset=utf-8');
+        // echo json_encode(['result' => $_GET['maintenance']]);
+        $data = require_once '../data/weekly_report.php';
+        $f3->set('content', 'weekly_report_1.htm');
+        $f3->set('data', $data[$_GET['maintenance']]);
+        echo \Template::instance()->render('layout.htm');
+    } else {
+        $data = require_once '../data/weekly_report.php';
+        $f3->set('content', 'weekly_report.htm');
+        $f3->set('data', array_reverse($data));
+        echo \Template::instance()->render('layout.htm');
+    }
+});
+
 $f3->route('GET /purchases', function($f3) {
     $f3->set('content', 'purchases.htm');
     echo \Template::instance()->render('layout.htm');
@@ -195,7 +211,7 @@ $f3->route('GET /gas_equipment_service_schedule', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET|POST /reception', function($f3) {
+$f3->route('GET /reception', function($f3) {
     $f3->set('content', 'reception.htm');
     echo \Template::instance()->render('layout.htm');
 });
