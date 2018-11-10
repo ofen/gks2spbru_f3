@@ -7,7 +7,10 @@ $f3->route('GET /', function($f3) {
 });
 
 $f3->route('GET /news', function($f3) {
-    $files = get_news(5);
+    $files = glob('../data/news/*.htm', GLOB_NOSORT);
+    rsort($files, SORT_NATURAL);
+    $files = array_chunk($files, 5);
+
     $current_page = 0;
     $data = array();
 
@@ -94,7 +97,10 @@ $f3->route('GET /thank_you_letter', function($f3) {
 });
 
 $f3->route('GET /press', function($f3) {
-    $files = get_press(5);
+    $files = glob('../data/press/*.htm', GLOB_NOSORT);
+    rsort($files, SORT_NATURAL);
+    $files = array_chunk($files, 5);
+
     $current_page = 0;
     $data = array();
 
@@ -185,17 +191,23 @@ $f3->route('GET /average_monthly_temperature', function($f3) {
 });
 
 $f3->route('GET /weekly_report', function($f3) {
-    if($_GET['maintenance']) {
-        // header('Content-Type: application/json; charset=utf-8');
-        // echo json_encode(['result' => $_GET['maintenance']]);
-        $data = require_once '../data/weekly_report.php';
-        $f3->set('content', 'weekly_report_1.htm');
-        $f3->set('data', $data[$_GET['maintenance']]);
-        echo \Template::instance()->render('layout.htm');
+    $data = require_once '../data/weekly_report.php';
+
+    if ($_GET['maintenance_report']) {
+        $period = $_GET['maintenance_report'];
+        $maintenance_report = $data[$period] ?? null;
+        if ($maintenance_report) {
+            $f3->set('content', 'weekly_report_maintenance_report.htm');
+            $f3->set('data', array_chunk($maintenance_report, 4));
+            echo \Template::instance()->render('layout.htm');
+        } else {
+            $f3->error(404);
+        }
+
     } else {
-        $data = require_once '../data/weekly_report.php';
+        $periods = array_keys($data);
         $f3->set('content', 'weekly_report.htm');
-        $f3->set('data', array_reverse($data));
+        $f3->set('data', array_reverse($periods));
         echo \Template::instance()->render('layout.htm');
     }
 });
@@ -244,9 +256,21 @@ $f3->route('POST /reception', function($f3) {
             move_uploaded_file($tmp_name, "tmp/{$filename}");
             $mail->addAttachment("tmp/{$filename}");
         }
+
+        $message = "
+            IP: {$_SERVER['REMOTE_ADDR']}\n
+            Имя: {$_POST['firstname']}\n
+            Фамилия: {$_POST['lastname']}\n
+            Адрес: {$_POST['address']}\n
+            Телефон: {$_POST['phone']}\n
+            Email: {$_POST['email']}\n
+            Тема обращения: {$_POST['subject']}\n
+            Текст обращения:\n
+            {$_POST['body']}
+        ";
         
         $mail->Subject = 'Интернет приемная';
-        $mail->Body = "IP: {$_SERVER['REMOTE_ADDR']}\nИмя: {$_POST['firstname']}\nФамилия: {$_POST['lastname']}\nАдрес: {$_POST['address']}\nТелефон: {$_POST['phone']}\nEmail: {$_POST['email']}\nТема обращения: {$_POST['subject']}\nТекст обращения:\n{$_POST['body']}\n";
+        $mail->Body = $message;
 
         if(!$mail->send()) {
             echo json_encode(['result' => 'Ошибка отправки сообщени']);

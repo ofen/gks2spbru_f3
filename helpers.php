@@ -113,24 +113,6 @@ function validate($data, $file=null) {
     }
 }
 
-function get_news($chunk_size) {
-    $files = glob('../data/news/*.htm', GLOB_NOSORT);
-    rsort($files, SORT_NATURAL);
-
-    return array_chunk($files, $chunk_size);
-}
-
-function get_press($chunk_size) {
-    $files = glob('../data/press/*.htm', GLOB_NOSORT);
-    rsort($files, SORT_NATURAL);
-
-    return array_chunk($files, $chunk_size);
-}
-
-function get_dir($path) {
-    
-}
-
 function filesize_formatted($file) {
     if(file_exists($file)) {
         $bytes = filesize($file);
