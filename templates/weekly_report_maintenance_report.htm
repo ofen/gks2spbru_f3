@@ -3,10 +3,10 @@
         <repeat group="{{ @rows }}" value="{{ @row }}">
             <div class="col-sm-4 col-md-3">
                 <div class="thumbnail thumbnail-h200">
-                    <a href="doc/weekly_report/{{ @row[2] }}" target="_blank"><img src="doc/weekly_report/{{ @row[2] }}"></a>
+                    <a href="doc/weekly_report/{{ @row[0] }}" target="_blank"><img src="doc/weekly_report/{{ @row[0] }}"></a>
                     <div class="caption">
-                        <h4>{{ @row[0] }}</h4>
-                        <p>{{ @row[1] }}</p>
+                        <h4>{{ @row[1] }}</h4>
+                        <p>{{ @row[2] }}</p>
                     </div>
                 </div>
             </div>

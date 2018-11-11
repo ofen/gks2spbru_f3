@@ -1,24 +1,28 @@
-<repeat group="{{ @data }}" key="{{ @division }}" value="{{ @employees }}">
-    <!-- Division -->
-    <h4>{{ @division }}</h4>
-    <repeat group="{{ @employees }}" value="{{ @employee }}">
-        <div class="media">
-            <div class="media-left">
-                <img class="media-object img-thumbnail" src="{{ file_exists(@employee['photo']) ? @employee['photo'] : 'holder.js/150x150' }}" alt="photo" style="width: 150px;">
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">
-                    {{ @employee['fullname'] }}<br>
-                    <small>{{ @employee['position'] }}</small>
-                </h4>
-                <p>
-                    Телефон: {{ @employee['phone'] }}<br>
-                    Адрес: {{ @employee['location'] }}<br>
-                    <check if="{{ @employee['reception_hours'] }}">
-                        Часы приема: {{ @employee['reception_hours'] }}
-                    </check>
-                </p>
-            </div>
-        </div>
-    </repeat>
-</repeat>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <repeat group="{{ @data }}" key="{{ @division }}" value="{{ @employees }}">
+            <!-- Division -->
+            <h4>{{ @division }}</h4>
+            <repeat group="{{ @employees }}" value="{{ @employee }}">
+                <div class="media">
+                    <div class="media-left">
+                        <img class="media-object img-thumbnail" src="{{ file_exists(@employee['photo']) ? @employee['photo'] : 'holder.js/150x150' }}" alt="photo" style="width: 150px;">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            {{ @employee['fullname'] }}<br>
+                            <small>{{ @employee['position'] }}</small>
+                        </h4>
+                        <p>
+                            Телефон: {{ @employee['phone'] }}<br>
+                            Адрес: {{ @employee['location'] }}<br>
+                            <check if="{{ @employee['reception_hours'] }}">
+                                Часы приема: {{ @employee['reception_hours'] }}
+                            </check>
+                        </p>
+                    </div>
+                </div>
+            </repeat>
+        </repeat>
+    </div>
+</div>
