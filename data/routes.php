@@ -198,7 +198,7 @@ $f3->route('GET /weekly_report', function($f3) {
         $maintenance_report = $data[$period] ?? null;
         if ($maintenance_report) {
             $f3->set('content', 'weekly_report_maintenance_report.htm');
-            $f3->set('data', array_chunk($maintenance_report, 4));
+            $f3->set('data', array_chunk($maintenance_report, 3));
             echo \Template::instance()->render('layout.htm');
         } else {
             $f3->error(404);
