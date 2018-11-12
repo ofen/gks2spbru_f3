@@ -3,7 +3,7 @@
 return array(
     'Администрация' => [
         [
-            'photo' => 'doc/photo/zaharov_dmitriy.jpg',
+            'photo' => '/doc/photo/zaharov_dmitriy.jpg',
             'fullname' => 'Захаров Дмитрий Петрович',
             'position' => 'Генеральный директор',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -19,7 +19,7 @@ return array(
             'reception_hours' => 'вторник 10:00-12:00, среда 17:00-19:00',
         ],
         [
-            'photo' => 'doc/photo/sinyavskiy_maksim.jpg',
+            'photo' => '/doc/photo/sinyavskiy_maksim.jpg',
             'fullname' => 'Синявский Максим Петрович',
             'position' => 'Главный инженер',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -35,7 +35,7 @@ return array(
             'reception_hours' => 'вторник 10:00-12:00, среда 17:00-19:00',
         ],
         [
-            'photo' => 'doc/photo/gavrilova_marina.jpg',
+            'photo' => '/doc/photo/gavrilova_marina.jpg',
             'fullname' => 'Гаврилова Марина Ивановна',
             'position' => 'Главный бухгалтер',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -43,7 +43,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/chumak_olesya.jpg',
+            'photo' => '/doc/photo/chumak_olesya.jpg',
             'fullname' => 'Чумак Олеся Анатольевна',
             'position' => 'Заместитель генерального директора по экономике',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -51,7 +51,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/demyashin_viktor.jpg',
+            'photo' => '/doc/photo/demyashin_viktor.jpg',
             'fullname' => 'Демяшин Виктор Сергеевич',
             'position' => 'Главный энергетик',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -67,7 +67,7 @@ return array(
             'reception_hours' => 'вторник 10:00-11:00, среда 17:00-18:00',
         ],
         [
-            'photo' => 'doc/photo/zaikina_ella.jpg',
+            'photo' => '/doc/photo/zaikina_ella.jpg',
             'fullname' => 'Заикина Элла Львовна',
             'position' => 'Начальник планово-экономического отдела',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -75,7 +75,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/stankevich_olga.jpg',
+            'photo' => '/doc/photo/stankevich_olga.jpg',
             'fullname' => 'Станкевич Ольга Вячеславовна',
             'position' => 'Начальник договорного отдела',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -83,7 +83,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/shamshura_natalya.jpg',
+            'photo' => '/doc/photo/shamshura_natalya.jpg',
             'fullname' => 'Шамшура Наталья Ивановна',
             'position' => 'Начальник организационно-распорядительного отдела',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -91,7 +91,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/prohorova_larisa.jpg',
+            'photo' => '/doc/photo/prohorova_larisa.jpg',
             'fullname' => 'Прохорова Лариса Валентиновна',
             'position' => 'Начальник отдела персонала',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -107,7 +107,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/komaritsina_tatyana.jpg',
+            'photo' => '/doc/photo/komaritsina_tatyana.jpg',
             'fullname' => 'Комарицына Татьяна Сергеевна',
             'position' => 'Начальник юридического отдела',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -115,7 +115,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/hinjinov_aleksandr.jpg',
+            'photo' => '/doc/photo/hinjinov_aleksandr.jpg',
             'fullname' => 'Ханжинов Александр Алексеевич',
             'position' => 'Начальник отдела по работе с собственниками жилья',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -123,7 +123,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/shibaev_aleksandr.jpg',
+            'photo' => '/doc/photo/shibaev_aleksandr.jpg',
             'fullname' => 'Шибаев Александр Денисович',
             'position' => 'Начальник отдела снабжения',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -131,7 +131,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/chebyshev_dmitriy.jpg',
+            'photo' => '/doc/photo/chebyshev_dmitriy.jpg',
             'fullname' => 'Чебышев Дмитрий Михайлович',
             'position' => 'Начальник отдела по контролю за энергоэффективностью',
             'location' => 'Зои Космодемьянской ул., д.13, лит.А',
@@ -147,7 +147,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/dilanyan_razmik.jpg',
+            'photo' => '/doc/photo/dilanyan_razmik.jpg',
             'fullname' => 'Диланян Размик Захарович',
             'position' => 'Начальник аварийно-диспетчерской службы',
             'location' => 'Трамвайный пр., д.11, к.5, лит.А',
@@ -157,7 +157,7 @@ return array(
     ],
     'Эксплуатационный участок №1' => [
         [
-            'photo' => 'doc/photo/pushkareva_olga.jpg',
+            'photo' => '/doc/photo/pushkareva_olga.jpg',
             'fullname' => 'Пушкарева Ольга Николаевна',
             'position' => 'Начальник ЭУ-1',
             'location' => 'Трамвайный пр., д.11, к.5, лит.А',
@@ -191,7 +191,7 @@ return array(
     ],
     'Эксплуатационный участок №2' => [
         [
-            'photo' => 'doc/photo/gorchenkova_tamara.jpg',
+            'photo' => '/doc/photo/gorchenkova_tamara.jpg',
             'fullname' => 'Горченкова Тамара Николаевна',
             'position' => 'Начальник ЭУ-2',
             'location' => 'Маршала Казакова ул., д.1, к.1, лит.А',
@@ -223,7 +223,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/yanbuhtina_olga.jpg',
+            'photo' => '/doc/photo/yanbuhtina_olga.jpg',
             'fullname' => 'Янбухтина Ольга Николаевна',
             'position' => 'Мастер общестроительных работ ЭУ-2',
             'location' => 'Маршала Казакова ул., д.1, к.1, лит.А',
@@ -239,7 +239,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/zalyalova_elvira.jpg',
+            'photo' => '/doc/photo/zalyalova_elvira.jpg',
             'fullname' => 'Залялова Эльвира Наильевна',
             'position' => 'Начальник ДУ-4',
             'location' => 'Маршала Казакова ул., д.1, к.1, лит.А',
@@ -247,7 +247,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/zakirova_gulnar.jpg',
+            'photo' => '/doc/photo/zakirova_gulnar.jpg',
             'fullname' => 'Закирова Гулнара Эрмахамадовна',
             'position' => 'Начальник ДУ-5',
             'location' => 'Маршала Казакова ул., д.1, к.1, лит.А',
@@ -265,7 +265,7 @@ return array(
     ],
     'Эксплуатационный участок №3' => [
         [
-            'photo' => 'doc/photo/butyrskaya_galina.jpg',
+            'photo' => '/doc/photo/butyrskaya_galina.jpg',
             'fullname' => 'Бутырская Галина Владимировна',
             'position' => 'Начальник ЭУ-3',
             'location' => 'Зои Космодемьянской ул., д.6, к.1, лит.А',
@@ -289,7 +289,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/butyrskaya_galina.jpg',
+            'photo' => '/doc/photo/butyrskaya_galina.jpg',
             'fullname' => 'Бутырская Галина Владимировна',
             'position' => 'Мастер общестроительных работ ЭУ-3',
             'location' => 'Зои Космодемьянской ул., д.6, к.1, лит.А',
@@ -323,7 +323,7 @@ return array(
     ],
     'Эксплуатационный участок №4' => [
         [
-            'photo' => 'doc/photo/dalelova_marina.jpg',
+            'photo' => '/doc/photo/dalelova_marina.jpg',
             'fullname' => 'Далелова Марина Мухамединовна',
             'position' => 'Начальник ЭУ-4',
             'location' => 'Автовская ул., д.32, лит.А',
@@ -331,7 +331,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/grebenkina_anna.jpg',
+            'photo' => '/doc/photo/grebenkina_anna.jpg',
             'fullname' => 'Гребенкина Анна Александрова',
             'position' => 'Мастер сантехников ЭУ-4',
             'location' => 'Зои Космодемьянской ул., д.6, к.1, лит.А',
@@ -339,7 +339,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/klyueva_svetlana.jpg',
+            'photo' => '/doc/photo/klyueva_svetlana.jpg',
             'fullname' => 'Клюева Светлана Петровна',
             'position' => 'Начальник ДУ-11',
             'location' => 'Автовская ул., д.32, лит.А',
@@ -347,7 +347,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/kozlova_natalya.jpg',
+            'photo' => '/doc/photo/kozlova_natalya.jpg',
             'fullname' => 'Козлова Наталья Александровна',
             'position' => 'Начальник ДУ-12',
             'location' => 'Автовская ул., д.32, лит.А',
@@ -363,7 +363,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/brusikova_marina.jpg',
+            'photo' => '/doc/photo/brusikova_marina.jpg',
             'fullname' => 'Брусикова Марина Владимировна',
             'position' => 'Начальник ДУ-14',
             'location' => 'Автовская ул., д.32, лит.А',
@@ -373,7 +373,7 @@ return array(
     ],
     'Эксплуатационный участок №5' => [
         [
-            'photo' => 'doc/photo/averkieva_lyubov.jpg',
+            'photo' => '/doc/photo/averkieva_lyubov.jpg',
             'fullname' => 'Аверкиева Любовь Владимировна',
             'position' => 'Начальник ЭУ-5',
             'location' => 'Двинская ул., д.10, лит.А',
@@ -389,7 +389,7 @@ return array(
             'reception_hours' => '',
         ],
         [
-            'photo' => 'doc/photo/chorna_olga.jpg',
+            'photo' => '/doc/photo/chorna_olga.jpg',
             'fullname' => 'Чорна Ольга Александровна',
             'position' => 'Начальник ДУ-21',
             'location' => 'Двинская ул., д.10, лит.А',
@@ -397,7 +397,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/chorna_olga.jpg',
+            'photo' => '/doc/photo/chorna_olga.jpg',
             'fullname' => 'Чорна Ольга Александровна',
             'position' => 'Начальник ДУ-22',
             'location' => 'Канонерский о., д.11, лит.А',
@@ -405,7 +405,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/butyrskaya_galina.jpg',
+            'photo' => '/doc/photo/butyrskaya_galina.jpg',
             'fullname' => 'Бутырская Галина Владимировна',
             'position' => 'Мастер общестроительных работ ЭУ-5',
             'location' => 'Зои Космодемьянской ул., д.6, к.1, лит.А',
@@ -455,7 +455,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/aliev_agakerim.jpg',
+            'photo' => '/doc/photo/aliev_agakerim.jpg',
             'fullname' => 'Алиев Агакерим Кямал оглы',
             'position' => 'Мастер сантехников ЭУ-6',
             'location' => 'Зои Космодемьянской ул., д.6, к.1, лит.А',
@@ -465,7 +465,7 @@ return array(
     ],
     'Эксплуатационный участок №7' => [
         [
-            'photo' => 'doc/photo/vychugjanina_natalya.jpg',
+            'photo' => '/doc/photo/vychugjanina_natalya.jpg',
             'fullname' => 'Вычугжанина Наталья Алексеевна',
             'position' => 'Начальник ЭУ-7',
             'location' => 'Маршала Жукова пр., д.26/16, лит.А',
@@ -473,7 +473,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/vasileva_olga.jpg',
+            'photo' => '/doc/photo/vasileva_olga.jpg',
             'fullname' => 'Васильева Ольга Ивановна',
             'position' => 'Начальник ДУ-7',
             'location' => 'Ленинский пр., д.110, к.1, лит.А',
@@ -481,7 +481,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/hromenkova_alla.jpg',
+            'photo' => '/doc/photo/hromenkova_alla.jpg',
             'fullname' => 'Хроменкова Алла Анатольевна',
             'position' => 'Начальник ДУ-8',
             'location' => 'Маршала Казакова ул., д.1, к.1, лит.А',
@@ -497,7 +497,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/volkova_elena.jpg',
+            'photo' => '/doc/photo/volkova_elena.jpg',
             'fullname' => 'Волкова Елена Анатольевна',
             'position' => 'Начальник ДУ-10',
             'location' => 'Маршала Жукова пр., д.34, к.1, лит.А',
@@ -505,7 +505,7 @@ return array(
             'reception_hours' => 'понедельник 17:00-19:00, четверг 10:00-12:00',
         ],
         [
-            'photo' => 'doc/photo/yanbuhtina_olga.jpg',
+            'photo' => '/doc/photo/yanbuhtina_olga.jpg',
             'fullname' => 'Янбухтина Ольга Николаевна',
             'position' => 'Мастер общестроительных работ ЭУ-7',
             'location' => 'Маршала Казакова ул., д.1, к.1, лит.А',

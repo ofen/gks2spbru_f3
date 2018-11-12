@@ -62,7 +62,7 @@ $f3->route('GET /house_list', function($f3) {
 });
 
 $f3->route('GET /house_management_contract', function($f3) {
-    $file = 'doc/Договор_управления_МКД.pdf';
+    $file = '/doc/Договор_управления_МКД.pdf';
 
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename="Договор_управления_МКД.pdf"');
@@ -72,7 +72,7 @@ $f3->route('GET /house_management_contract', function($f3) {
 });
 
 $f3->route('GET /law', function($f3) {
-    $path = 'doc/law/';
+    $path = '/doc/law/';
 
     $data = array();
     $dirs = array_diff(scandir($path), array('.', '..'));
@@ -136,7 +136,7 @@ $f3->route('GET /contacts', function($f3) {
 // Column
 
 $f3->route('GET /paid_service', function($f3) {
-    $file = 'doc/platnie_uslugi_2014.pdf';
+    $file = '/doc/platnie_uslugi_2014.pdf';
 
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename="platnie_uslugi.pdf"');
@@ -158,7 +158,9 @@ $f3->route('GET /cost_reduction', function($f3) {
 
 $f3->route('GET /financial_report', function($f3) {
     $f3->set('content', 'financial_report.htm');
-    $f3->set('files', require_once '../data/financial_report.php');
+    $data = require_once '../data/financial_report.php';
+    krsort($data);
+    $f3->set('data', $data);
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -174,7 +176,9 @@ $f3->route('GET /meter_reading', function($f3) {
 
 $f3->route('GET /maintenance_report', function($f3) {
     $f3->set('content', 'maintenance_report.htm');
-    $f3->set('data', require_once '../data/maintenance_report.php');
+    $data = require_once '../data/maintenance_report.php';
+    krsort($data);
+    $f3->set('data', $data);
     echo \Template::instance()->render('layout.htm');
 });
 
