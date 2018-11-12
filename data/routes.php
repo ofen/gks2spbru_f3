@@ -193,22 +193,25 @@ $f3->route('GET /average_monthly_temperature', function($f3) {
 $f3->route('GET /weekly_report', function($f3) {
     $data = require_once '../data/weekly_report.php';
 
-    if ($_GET['maintenance_report']) {
-        $period = $_GET['maintenance_report'];
-        $maintenance_report = $data[$period] ?? null;
-        if ($maintenance_report) {
+    $periods = array_keys($data);
+    $f3->set('content', 'weekly_report.htm');
+    $f3->set('data', array_reverse($periods));
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /weekly_report/maintenance_report', function($f3) {
+    $data = require_once '../data/weekly_report.php';
+
+    if ($date = $_GET['date']) {
+        if (array_key_exists($date, $data)) {
             $f3->set('content', 'weekly_report_maintenance_report.htm');
-            $f3->set('data', array_chunk($maintenance_report, 3));
+            $f3->set('data', array_chunk($data[$date], 3));
             echo \Template::instance()->render('layout.htm');
         } else {
             $f3->error(404);
         }
-
     } else {
-        $periods = array_keys($data);
-        $f3->set('content', 'weekly_report.htm');
-        $f3->set('data', array_reverse($periods));
-        echo \Template::instance()->render('layout.htm');
+        $f3->error(404);
     }
 });
 

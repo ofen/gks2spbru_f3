@@ -95,3 +95,11 @@ body {
     width: 100%;
     height: 200px!important;
 }
+
+footer {
+    color: #777;
+}
+
+footer a {
+    color: #777;
+}

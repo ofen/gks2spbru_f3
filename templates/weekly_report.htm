@@ -10,15 +10,15 @@
         <tbody>
             <tr>
                 <td class="col-xs-10">Текущий ремонт</td>
-                <td><a href="?maintenance_report={{ @period }}" class="btn btn-primary">Подробнее</a></td>
+                <td><a href="{{ @PATH }}/maintenance_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
             </tr>
             <tr>
                 <td class="col-xs-10">Благоустройство территории</td>
-                <td><a href="?landscaping_report={{ @period }}" class="btn btn-primary">Подробнее</a></td>
+                <td><a href="{{ @PATH }}/landscaping_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
             </tr>
             <tr>
                 <td class="col-xs-10">Обращения</td>
-                <td><a href="?appeal_report={{ @period }}" class="btn btn-primary">Подробнее</a></td>
+                <td><a href="{{ @PATH }}/?appeal_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
             </tr>
         </tbody>
     </table>
