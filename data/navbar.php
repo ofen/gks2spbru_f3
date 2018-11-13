@@ -19,6 +19,7 @@ return array(
     'Раскрытие информации' => [
         'Бухгалтерская отчетность' => '/financial_report',
         'Подомовая отчетность' => '/house_report',
+        'Информация о доме' => '/house_information',
         'Показания ОДПУ' => '/meter_reading',
         'Текущий ремонт' => '/maintenance_report',
         'Энергоэффективность' => '/energy_efficiency',

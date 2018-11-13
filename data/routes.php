@@ -62,7 +62,7 @@ $f3->route('GET /houses_in_service', function($f3) {
 });
 
 $f3->route('GET /house_service_contract', function($f3) {
-    $file = 'doc/Договор_управления_МКД.pdf';
+    $file = './doc/Договор_управления_МКД.pdf';
 
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename="Договор_управления_МКД.pdf"');
@@ -72,7 +72,7 @@ $f3->route('GET /house_service_contract', function($f3) {
 });
 
 $f3->route('GET /law', function($f3) {
-    $path = 'doc/law/';
+    $path = './doc/law/';
 
     $data = array();
     $dirs = array_diff(scandir($path), array('.', '..'));
@@ -136,7 +136,7 @@ $f3->route('GET /contacts', function($f3) {
 // Column
 
 $f3->route('GET /paid_service', function($f3) {
-    $file = 'doc/platnie_uslugi_2014.pdf';
+    $file = './doc/platnie_uslugi_2014.pdf';
 
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename="platnie_uslugi.pdf"');
@@ -166,6 +166,10 @@ $f3->route('GET /financial_report', function($f3) {
 
 $f3->route('GET /house_report', function($f3) {
     $f3->reroute('https://www.reformagkh.ru/mymanager/profile/6743234/');
+});
+
+$f3->route('GET /house_information', function($f3) {
+    $f3->reroute('https://gorod.gov.spb.ru/facilities/search/');
 });
 
 $f3->route('GET /meter_reading', function($f3) {
