@@ -55,14 +55,14 @@ $f3->route('GET /jobs', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /house_list', function($f3) {
-    $f3->set('content', 'house_list.htm');
-    $f3->set('data', require_once '../data/house_list.php');
+$f3->route('GET /houses_in_service', function($f3) {
+    $f3->set('content', 'houses_in_service.htm');
+    $f3->set('data', require_once '../data/houses_in_service.php');
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /house_management_contract', function($f3) {
-    $file = '/doc/Договор_управления_МКД.pdf';
+$f3->route('GET /house_service_contract', function($f3) {
+    $file = 'doc/Договор_управления_МКД.pdf';
 
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename="Договор_управления_МКД.pdf"');
@@ -72,7 +72,7 @@ $f3->route('GET /house_management_contract', function($f3) {
 });
 
 $f3->route('GET /law', function($f3) {
-    $path = '/doc/law/';
+    $path = 'doc/law/';
 
     $data = array();
     $dirs = array_diff(scandir($path), array('.', '..'));
@@ -136,7 +136,7 @@ $f3->route('GET /contacts', function($f3) {
 // Column
 
 $f3->route('GET /paid_service', function($f3) {
-    $file = '/doc/platnie_uslugi_2014.pdf';
+    $file = 'doc/platnie_uslugi_2014.pdf';
 
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename="platnie_uslugi.pdf"');
