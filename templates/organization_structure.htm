@@ -6,7 +6,7 @@
             <div class="panel-body">
                 <div class="media">
                     <div class="media-left">
-                        <img class="media-object" src="{{ file_exists(@employee['photo']) ? @employee['photo'] : 'holder.js/150x150' }}" alt="photo" style="width: 150px;">
+                        <img class="media-object" src="{{ @employee['photo'] != '#' ? @employee['photo'] : 'holder.js/150x150' }}" alt="photo" style="width: 150px;">
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">{{ @employee['fullname'] }}<br>
