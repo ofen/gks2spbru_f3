@@ -1,25 +1,62 @@
-<repeat group="{{ @data }}" value="{{ @period }}">
-    <table class="table table-hover">
-        <caption>Еженедельный отчет<br><span class="label label-primary">{{ @period }}</span></caption>
-        <thead>
-            <tr>
-                <th>Категория</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="col-xs-10">Текущий ремонт</td>
-                <td><a href="{{ @PATH }}/maintenance_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
-            </tr>
-            <tr>
-                <td class="col-xs-10">Благоустройство территории</td>
-                <td><a href="{{ @PATH }}/landscaping_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
-            </tr>
-            <tr>
-                <td class="col-xs-10">Обращения</td>
-                <td><a href="{{ @PATH }}/?appeal_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
-            </tr>
-        </tbody>
-    </table>
-</repeat>
+
+<check if="{{ @PATH == '/weekly_report' }}">
+    <!-- Default -->
+    <repeat group="{{ @data }}" value="{{ @period }}">
+        <table class="table table-hover">
+            <caption>Еженедельный отчет<br><span class="label label-primary">{{ @period }}</span></caption>
+            <thead>
+                <tr>
+                    <th>Категория</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-xs-10">Текущий ремонт</td>
+                    <td><a href="{{ @PATH }}/service_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="col-xs-10">Благоустройство территории</td>
+                    <td><a href="{{ @PATH }}/landscaping_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <td class="col-xs-10">Обращения</td>
+                    <td><a href="{{ @PATH }}/?appeal_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </repeat>
+
+</check>
+
+<check if="{{ @PATH == '/weekly_report/service_report' }}">
+    <!-- Service_report -->
+    <p><a href="/weekly_report" class="btn btn-primary">Вернуться</a></p>
+
+    <repeat group="{{ $data }}" value="{{ @rows }}">
+        <div class="row">
+            <repeat group="{{ @rows }}" value="{{ @row }}">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail thumbnail-h200">
+                        <a href="/doc/weekly_report/{{ @row[0] }}" target="_blank"><img src="/doc/weekly_report/{{ @row[0] }}"></a>
+                        <div class="caption">
+                            <h4>{{ @row[1] }}</h4>
+                            <p>{{ @row[2] }}</p>
+                        </div>
+                    </div>
+                </div>
+            </repeat>
+        </div>
+    </repeat>
+
+</check>
+
+<check if="{{ @PATH == '/weekly_report/landscaping_report' }}">
+    <!-- landscaping_report -->
+
+</check>
+
+<check if="{{ @PATH == '/weekly_report/appeal_report' }}">
+    <!-- appeal_report -->
+
+</check>

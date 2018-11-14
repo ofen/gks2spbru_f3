@@ -24,6 +24,7 @@ $f3->route('GET /news', function($f3) {
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode(['result' => $data, 'lenght' => count($files)]);
     } else {
+
         foreach($files[$current_page] as $file) {
             $data[] = file_get_contents($file);
         }
@@ -135,11 +136,11 @@ $f3->route('GET /contacts', function($f3) {
 
 // Column
 
-$f3->route('GET /paid_service', function($f3) {
-    $file = './doc/platnie_uslugi_2014.pdf';
+$f3->route('GET /paid_services', function($f3) {
+    $file = './doc/Платные_услуги_2014.pdf';
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="platnie_uslugi.pdf"');
+    header('Content-Disposition: inline; filename="Платные_услуги.pdf"');
     header('Content-Length: ' . filesize($file));
 
     echo readfile($file);
@@ -172,15 +173,17 @@ $f3->route('GET /house_information', function($f3) {
     $f3->reroute('https://gorod.gov.spb.ru/facilities/search/');
 });
 
-$f3->route('GET /meter_reading', function($f3) {
-    $f3->set('content', 'meter_reading.htm');
-    $f3->set('data', require_once '../data/meter_reading.php');
+$f3->route('GET /house_meter_reading', function($f3) {
+    $f3->set('content', 'house_meter_reading.htm');
+    $data = require_once '../data/house_meter_reading.php';
+    ksort($data);
+    $f3->set('data', $data);
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /maintenance_report', function($f3) {
-    $f3->set('content', 'maintenance_report.htm');
-    $data = require_once '../data/maintenance_report.php';
+$f3->route('GET /house_service_report', function($f3) {
+    $f3->set('content', 'house_service_report.htm');
+    $data = require_once '../data/house_service_report.php';
     krsort($data);
     $f3->set('data', $data);
     echo \Template::instance()->render('layout.htm');
@@ -207,12 +210,12 @@ $f3->route('GET /weekly_report', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /weekly_report/maintenance_report', function($f3) {
+$f3->route('GET /weekly_report/service_report', function($f3) {
     $data = require_once '../data/weekly_report.php';
 
     if ($date = $_GET['date']) {
         if (array_key_exists($date, $data)) {
-            $f3->set('content', 'weekly_report_maintenance_report.htm');
+            $f3->set('content', 'weekly_report.htm');
             $f3->set('data', array_chunk($data[$date], 3));
             echo \Template::instance()->render('layout.htm');
         } else {

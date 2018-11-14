@@ -26,7 +26,7 @@ return array(
         'План текущего ремонта 2017' => '/doc/plan_tekushego_remonta_2017.pdf',
     ],
     '2018' => [
-        'Отчет текущего ремонта 2018' => '/doc/otchet_tekushego_remonta_2018.pdf',
+        // 'Отчет текущего ремонта 2018' => '/doc/otchet_tekushego_remonta_2018.pdf',
         'План текущего ремонта 2018' => '/doc/plan_tekushego_remonta_2018.pdf',
     ],
 );

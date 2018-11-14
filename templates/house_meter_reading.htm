@@ -1,0 +1,55 @@
+<check if="{{ @PATH == '/house_meter_reading' }}">
+    <!-- Default -->
+    <repeat group="{{ @data }}" key="{{ @year }}" value="{{ @year_data }}">
+        <!-- Table -->
+        <table class="table table-hover">
+            <caption>Показания общедомовых приборов учета<br><span class="label label-primary">{{ @year }}</span></caption>
+            <thead>
+                <tr>
+                    <th>Месяц</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <repeat group="{{ @year_data }}" key="{{ @month }}" value="{{ @files }}">
+                    <tr>
+                        <td class="col-xs-10">{{ @month }}</td>
+                        <td>
+                            <!-- Dropdown button -->
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-download-alt"></span> Скачать</button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="{{ @files[0] }}" target="_blank">ХВС</a></li>
+                                    <li><a href="{{ @files[1] }}" target="_blank">ГВС</a></li>
+                                    <li><a href="{{ @files[2] }}" target="_blank">Эл. энергия</a></li>
+                                    <li><a href="{{ @files[3] }}" target="_blank">Теп. энергия</a></li>
+                                </ul>
+                            </div>   
+                        </td>
+                    </tr>
+                </repeat>
+            </tbody>
+        </table>
+    </repeat>
+
+</check>
+
+<check if="{{ @PATH == '/house_meter_reading/cold_water' }}">
+    <!-- Cold water -->
+
+</check>
+
+<check if="{{ @PATH == '/house_meter_reading/hot_water' }}">
+    <!-- Hot water -->
+    
+</check>
+
+<check if="{{ @PATH == '/house_meter_reading/electric_energy' }}">
+    <!-- Electric energy -->
+    
+</check>
+
+<check if="{{ @PATH == '/house_meter_reading/heat_energy' }}">
+    <!-- Heat energy -->
+    
+</check>
