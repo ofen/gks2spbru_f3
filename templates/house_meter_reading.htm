@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <repeat group="{{ @year_data }}" key="{{ @month }}" value="{{ @files }}">
+                <repeat group="{{ @year_data }}" key="{{ @month }}" value="{{ @links }}">
                     <tr>
                         <td class="col-xs-10">{{ @month }}</td>
                         <td>
@@ -19,10 +19,10 @@
                             <div class="dropdown">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-download-alt"></span> Скачать</button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="{{ @files[0] }}" target="_blank">ХВС</a></li>
-                                    <li><a href="{{ @files[1] }}" target="_blank">ГВС</a></li>
-                                    <li><a href="{{ @files[2] }}" target="_blank">Эл. энергия</a></li>
-                                    <li><a href="{{ @files[3] }}" target="_blank">Теп. энергия</a></li>
+                                    <li><a href="{{ @PATH . @links[0] }}">ХВС</a></li>
+                                    <li><a href="{{ @PATH . @links[1] }}">ГВС</a></li>
+                                    <li><a href="{{ @PATH . @links[2] }}">Эл. энергия</a></li>
+                                    <li><a href="{{ @PATH . @links[3] }}">Теп. энергия</a></li>
                                 </ul>
                             </div>   
                         </td>
@@ -35,8 +35,29 @@
 </check>
 
 <check if="{{ @PATH == '/house_meter_reading/cold_water' }}">
-    <!-- Cold water -->
-
+    <!-- Cold water -->  
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Адрес</th>
+                <th>Расход предыдущего месяца</th>
+                <th>Расход текущего месяца</th>
+                <th>Отношение расходов</th>
+            </tr>
+        </thead>
+        <tbody>
+            <repeat group="{{ @data }}" key="{{ @index }}" value="{{ @row }}">
+                <tr>
+                    <td>{{ @index + 1 }}</td>
+                    <td>{{ @row[0] }}</td>
+                    <td>{{ @row[1] }}</td>
+                    <td>{{ @row[2] }}</td>
+                    <td>{{ @row[3] }}</td>
+                </tr>
+            </repeat>
+        </tbody>
+    </table>
 </check>
 
 <check if="{{ @PATH == '/house_meter_reading/hot_water' }}">

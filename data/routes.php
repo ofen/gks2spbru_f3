@@ -181,6 +181,31 @@ $f3->route('GET /house_meter_reading', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+$f3->route('GET /house_meter_reading/cold_water', function($f3) {
+    if ($date = $_GET['date']) {
+
+        if (($handle = fopen("../data/house_meter_reading/cold_water_{$date}.csv", 'r')) != false) {
+            $data = array();
+            while (($line = fgetcsv($handle)) != false) {
+                $data[] = $line;
+            }
+            fclose($handle);
+        } else {
+            $f3->error(404);
+        }
+    } else {
+        $f3->error(404);
+    }
+
+
+    $f3->set('content', 'house_meter_reading.htm');
+    $f3->set('data', $data);
+    echo \Template::instance()->render('layout.htm');
+});
+
+
+
+
 $f3->route('GET /house_service_report', function($f3) {
     $f3->set('content', 'house_service_report.htm');
     $data = require_once '../data/house_service_report.php';
