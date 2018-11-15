@@ -35,15 +35,19 @@
 </check>
 
 <check if="{{ @PATH == '/house_meter_reading/cold_water' }}">
-    <!-- Cold water -->  
+    <!-- Cold water -->
+
+    <p><a href="/house_meter_reading" class="btn btn-primary">Вернуться</a></p>
+    
     <table class="table table-hover">
+        <caption>Холодная вода<br><span class="label label-primary">{{ @GET['date'] }}</span></caption>
         <thead>
             <tr>
                 <th>#</th>
                 <th>Адрес</th>
-                <th>Расход предыдущего месяца</th>
-                <th>Расход текущего месяца</th>
-                <th>Отношение расходов</th>
+                <th>Расход предыдущего месяца, м<sup>3</sup></th>
+                <th>Расход текущего месяца, м<sup>3</sup></th>
+                <th>Отношение расходов, %</th>
             </tr>
         </thead>
         <tbody>

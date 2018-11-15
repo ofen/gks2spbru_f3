@@ -184,15 +184,19 @@ $f3->route('GET /house_meter_reading', function($f3) {
 $f3->route('GET /house_meter_reading/cold_water', function($f3) {
     if ($date = $_GET['date']) {
 
-        if (($handle = fopen("../data/house_meter_reading/cold_water_{$date}.csv", 'r')) != false) {
+        $file = "../data/house_meter_reading/cold_water_{$date}.csv";
+
+        if (file_exists($file)) {
+            $handle = fopen($file, 'r');
             $data = array();
-            while (($line = fgetcsv($handle)) != false) {
+            while ($line = fgetcsv($handle)) {
                 $data[] = $line;
             }
             fclose($handle);
         } else {
             $f3->error(404);
         }
+        
     } else {
         $f3->error(404);
     }
