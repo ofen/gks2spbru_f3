@@ -38,26 +38,29 @@
     <!-- Cold water -->
 
     <p><a href="/house_meter_reading" class="btn btn-primary">Вернуться</a></p>
-    
-    <table class="table table-hover">
+
+    <!-- Search -->
+    <div class="form-group">
+        <label for="search">Поиск</label>
+        <input type="text" name="search" id="search_data" placeholder="Начните поиск..." class="form-control">
+    </div>
+
+    <!-- Table -->
+    <table class="table table-hover" id="data_list">
         <caption>Холодная вода<br><span class="label label-primary">{{ @GET['date'] }}</span></caption>
         <thead>
             <tr>
-                <th>#</th>
                 <th>Адрес</th>
-                <th>Расход предыдущего месяца, м<sup>3</sup></th>
-                <th>Расход текущего месяца, м<sup>3</sup></th>
-                <th>Отношение расходов, %</th>
+                <th>Пред. расход, м<sup>3</sup></th>
+                <th>Тек. расход, м<sup>3</sup></th>
             </tr>
         </thead>
         <tbody>
             <repeat group="{{ @data }}" key="{{ @index }}" value="{{ @row }}">
                 <tr>
-                    <td>{{ @index + 1 }}</td>
-                    <td>{{ @row[0] }}</td>
+                    <td>{{ mb_convert_case(@row[0], MB_CASE_TITLE, 'UTF-8') }}</td>
                     <td>{{ @row[1] }}</td>
                     <td>{{ @row[2] }}</td>
-                    <td>{{ @row[3] }}</td>
                 </tr>
             </repeat>
         </tbody>
