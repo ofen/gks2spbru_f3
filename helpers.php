@@ -52,44 +52,38 @@ function validate($data, $file=null) {
 
     $max_size = 5242880;
 
-    if (empty($data['firstname'])) {
-        $errors['firstname'] = 'Имя обязательно';
-    } elseif (!preg_match("/^[а-я ]+$/ui", $data['firstname'])) {
-        $errors['firstname'] = 'Некорректное имя';
-    }
-
-    if (empty($data['lastname'])) {
-        $errors['lastname'] = 'Фамилия обязательна';
-    } elseif (!preg_match("/^[а-я ]+$/ui", $data['lastname'])) {
-        $errors['lastname'] = 'Некорректная фамилия';
+    if (empty($data['fullname'])) {
+        $errors['fullname'] = 'Поле обязательно';
+    } elseif (!preg_match("/^[а-я ]+$/ui", $data['fullname'])) {
+        $errors['fullname'] = 'Некорректные данные';
     }
 
     if (empty($data['address'])) {
-        $errors['address'] = 'Адрес обязателен';
+        $errors['address'] = 'Поле обязательно';
     } elseif (!preg_match("/^[а-я \.\,0-9]+$/ui", $data['address'])) {
         $errors['address'] = 'Некорректный адрес';
     }
 
     if (empty($data['phone'])) {
-        $errors['phone'] = 'Телефон обязателен';
+        $errors['phone'] = 'Поле обязательно';
     } elseif (!preg_match("/^[0-9\+]+$/", $data['phone'])) {
         $errors['phone'] = 'Некорректный телефон';
     }
 
     if (empty($data['email'])) {
-        $errors['email'] = 'Email обязателен';
+        $errors['email'] = 'Поле обязательно';
     } elseif (!preg_match("/^.+@.+\..+$/i", $data['email'])) {
-        $errors['email'] = 'Некорректный email';
+        $errors['email'] = 'Некорректная электронная почта';
     }
 
     if (empty($data['subject'])) {
-        $errors['subject'] = 'Тема обязательна';
+        $errors['subject'] = 'Поле обязательно';
     } elseif (in_array($data['subject'], $subject_options) ) {
         $errors['subject'] = 'Некорректная тема';
     }
 
     if (empty($data['body'])) {
-        $errors['body'] = 'Текст сообщения обязателен';
+        $errors['body'] = 'Поле обязательно';
     }
 
     $file_name = $file['attachment']['name'];

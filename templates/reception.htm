@@ -1,30 +1,30 @@
 <!-- Form -->
 <form method="post" action="/reception" enctype="multipart/form-data">
+
     <!-- Field -->
     <div class="form-group">
-        <label class="control-label" for="firstname">Фамилия, имя и отчество *</label>
-        <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Ваше имя" autocomplete="given-name">
+        <label class="control-label" for="fullname">Фамилия, имя и отчество *</label>
+        <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Ваше имя" autocomplete="given-name">
     </div>
 
-<!--     <div class="form-group">
-        <label class="control-label" for="lastname">Фамилия *</label>
-        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Ваша фамилия" autocomplete="family-name">
-    </div>
-
+    <!-- Field -->
     <div class="form-group">
         <label class="control-label" for="address">Адрес *</label>
-        <input type="text" name="address" class="form-control" id="address" placeholder="Ваш адрес" autocomplete="street-address">
-    </div> -->
+        <input type="text" name="address" class="form-control" id="address" placeholder="Ваше адрес" autocomplete="given-name">
+    </div>
+
     <!-- Field -->
     <div class="form-group">
         <label class="control-label" for="phone">Телефон *</label>
         <input type="text" name="phone" class="form-control" id="phone" placeholder="+78121234567" autocomplete="tel-national">
     </div>
+
     <!-- Field -->
     <div class="form-group">
         <label class="control-label" for="email">Электронная почта *</label>
         <input type="email" name="email" class="form-control" id="email" placeholder="Ваш адрес электронной почты" autocomplete="email">
     </div>
+
     <!-- Field -->
     <div class="form-group">
         <label class="control-label" for="subject">Тема сообщения *</label>
@@ -39,20 +39,21 @@
             <option value="7">Другое</option>
         </select>
     </div>
+
     <!-- Field -->
     <div class="form-group">
         <label  class="control-label" for="body">Текст сообщения *</label>
         <textarea name="body" class="form-control" id="body" rows="3" placeholder="Текст сообщения"></textarea>
     </div>
+
     <!-- Upload file -->
     <div class="form-group">
         <label class="control-label" for="attachment">Прикрепить файл (до 5 Мб)</label>
         <input type="file" name="attachment" accept=".jpg, .png, .pdf" id="attachment">
     </div>
-    <div class="text-center">
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary" id="submit">Отправить</button>
-    </div>
+
+    <!-- Submit button -->
+    <div class="text-center"><button type="submit" class="btn btn-primary" id="submit">Отправить</button></div>
 
     <p class="small">* Поля обязательные для заполнения</p>
 </form>
