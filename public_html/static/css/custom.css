@@ -103,3 +103,7 @@ footer {
 footer a {
     color: #777;
 }
+
+.dropdown-text {
+    padding: 15px;
+}

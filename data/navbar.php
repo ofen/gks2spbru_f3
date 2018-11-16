@@ -6,7 +6,6 @@ return array(
     'О компании' => [
         'Общая информация' => '/about',
         'Структура организации' => '/organization_structure',
-        'Режим работы' => '/working_hours',
         'Вакансии' => '/jobs',
         'Дома в управлении' => '/houses_in_service',
         'Договор управления МКД' => '/house_service_contract',
@@ -14,7 +13,7 @@ return array(
         'Нас благодарят' => '/thank_you_letter',
         'Мы в прессе' => '/press',
         'Полезная информация' => '/useful_info',
-        'Контакты' => '/contacts',
+        'Контакты и часы работы' => '/contacts_and_working_hours',
     ],
     'Раскрытие информации' => [
         'Бухгалтерская отчетность' => '/financial_report',

@@ -129,8 +129,8 @@ $f3->route('GET /useful_info', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /contacts', function($f3) {
-    $f3->set('content', 'contacts.htm');
+$f3->route('GET /contacts_and_working_hours', function($f3) {
+    $f3->set('content', 'contacts_and_working_hours.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -176,7 +176,7 @@ $f3->route('GET /house_information', function($f3) {
 $f3->route('GET /house_meter_reading', function($f3) {
     $f3->set('content', 'house_meter_reading.htm');
     $data = require_once '../data/house_meter_reading.php';
-    ksort($data);
+    krsort($data);
     $f3->set('data', $data);
     echo \Template::instance()->render('layout.htm');
 });
@@ -207,8 +207,83 @@ $f3->route('GET /house_meter_reading/cold_water', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
+$f3->route('GET /house_meter_reading/hot_water', function($f3) {
+    if ($date = $_GET['date']) {
+
+        $file = "../data/house_meter_reading/hot_water_{$date}.csv";
+
+        if (file_exists($file)) {
+            $handle = fopen($file, 'r');
+            $data = array();
+            while ($line = fgetcsv($handle)) {
+                $data[] = $line;
+            }
+            fclose($handle);
+        } else {
+            $f3->error(404);
+        }
+        
+    } else {
+        $f3->error(404);
+    }
 
 
+    $f3->set('content', 'house_meter_reading.htm');
+    $f3->set('data', $data);
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /house_meter_reading/electric_energy', function($f3) {
+    if ($date = $_GET['date']) {
+
+        $file = "../data/house_meter_reading/electric_energy_{$date}.csv";
+
+        if (file_exists($file)) {
+            $handle = fopen($file, 'r');
+            $data = array();
+            while ($line = fgetcsv($handle)) {
+                $data[] = $line;
+            }
+            fclose($handle);
+        } else {
+            $f3->error(404);
+        }
+        
+    } else {
+        $f3->error(404);
+    }
+
+
+    $f3->set('content', 'house_meter_reading.htm');
+    $f3->set('data', $data);
+    echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /house_meter_reading/heat_energy', function($f3) {
+    if ($date = $_GET['date']) {
+
+        $file = "../data/house_meter_reading/heat_energy_{$date}.csv";
+
+        if (file_exists($file)) {
+            $handle = fopen($file, 'r');
+            $data = array();
+            while ($line = fgetcsv($handle)) {
+                $data[] = $line;
+            }
+            fclose($handle);
+        } else {
+            $f3->error(404);
+        }
+        
+    } else {
+        $f3->error(404);
+    }
+
+
+    $f3->set('content', 'house_meter_reading.htm');
+    $f3->set('data', $data);
+    echo \Template::instance()->render('layout.htm');
+});
 
 $f3->route('GET /house_service_report', function($f3) {
     $f3->set('content', 'house_service_report.htm');
