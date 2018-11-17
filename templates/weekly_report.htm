@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <td class="col-xs-10">Обращения</td>
-                    <td><a href="{{ @PATH }}/?appeal_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
+                    <td><a href="{{ @PATH }}/appeal_report?date={{ @period }}" class="btn btn-primary">Подробнее</a></td>
                 </tr>
             </tbody>
         </table>
@@ -30,7 +30,7 @@
 </check>
 
 <check if="{{ @PATH == '/weekly_report/service_report' }}">
-    <!-- Service_report -->
+    <!-- Service report -->
     <p><a href="/weekly_report" class="btn btn-primary">Вернуться</a></p>
 
     <repeat group="{{ $data }}" value="{{ @rows }}">
@@ -52,11 +52,11 @@
 </check>
 
 <check if="{{ @PATH == '/weekly_report/landscaping_report' }}">
-    <!-- landscaping_report -->
+    <!-- Landscaping report -->
 
 </check>
 
 <check if="{{ @PATH == '/weekly_report/appeal_report' }}">
-    <!-- appeal_report -->
+    <!-- Appeal report -->
 
 </check>

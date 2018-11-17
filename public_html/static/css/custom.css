@@ -107,3 +107,7 @@ footer a {
 .dropdown-text {
     padding: 15px;
 }
+
+label {
+    font-weight: normal;
+}

@@ -1,0 +1,25 @@
+<!-- Note -->
+<div class="alert alert-info" type="alert">
+    <strong>Прохорова Лариса Валентиновна</strong><br>
+    Начальник отдела персонала<br>
+    Телефон: 708-93-30 доб.4060<br>
+    Адрес электронной почты: prohorova_larisa @ bk.ru
+</div>
+
+<repeat group="{{ @data }}" value="{{ @job }}">
+    
+    <!-- Item -->
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>{{ @job['position'] }}<br>
+            <small class="text-muted">{{ @job['salary'] }}</small></h4>
+            <p>
+                Характер работы: {{ @job['job_type'] }}<br>
+                Рабочий день: {{ @job['workday'] }}<br>
+                Требуемый опыт: {{ @job['experience'] }}<br>
+                Дополнительно: {{ @job['extra'] }}
+            </p>
+        </div>
+    </div>
+
+</repeat>

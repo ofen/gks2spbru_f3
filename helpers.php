@@ -78,7 +78,7 @@ function validate($data, $file=null) {
 
     if (empty($data['subject'])) {
         $errors['subject'] = 'Поле обязательно';
-    } elseif (in_array($data['subject'], $subject_options) ) {
+    } elseif (!in_array($data['subject'], $subject_options)) {
         $errors['subject'] = 'Некорректная тема';
     }
 

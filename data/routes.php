@@ -51,8 +51,9 @@ $f3->route('GET /working_hours', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /jobs', function($f3) {
-    $f3->set('content', 'jobs.htm');
+$f3->route('GET /job', function($f3) {
+    $f3->set('content', 'job.htm');
+    $f3->set('data', require_once '../data/job.php');
     echo \Template::instance()->render('layout.htm');
 });
 
@@ -171,11 +172,7 @@ $f3->route('GET /house_report', function($f3) {
 });
 
 $f3->route('GET /house_information', function($f3) {
-    $f3->set('content', 'house_meter_reading.htm');
-    $data = require_once '../data/house_meter_reading.php';
-    krsort($data);
-    $f3->set('data', $data);
-    echo \Template::instance()->render('layout.htm');
+    $f3->reroute('https://gorod.gov.spb.ru/facilities/search/');
 });
 
 $f3->route('GET /house_meter_reading', function($f3) {
@@ -186,10 +183,10 @@ $f3->route('GET /house_meter_reading', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /house_meter_reading/@report_type', function($f3, $params) {
+$f3->route('GET /house_meter_reading/@report_type', function($f3) {
 
     $allowed_types = ['cold_water', 'hot_water', 'electric_energy', 'heat_energy'];
-    $report_type = $params['report_type'];
+    $report_type = $f3->get('PARAMS.report_type');
 
     if(in_array($report_type, $allowed_types)) {
         if($date = $_GET['date']) {
@@ -289,14 +286,14 @@ $f3->route('POST /reception', function($f3) {
     } else {
         $host = 'smtp.yandex.ru';
         $port = 465;
-        $user = 'test@yandex.ru';
-        $password = 'test';
+        $user = 'mailer@yandex.ru';
+        $password = 'password';
 
         $smtp = new SMTP($host, $port, 'ssl', $user, $password);
 
-        $smtp->set('From', '"gks2spb.ru mailer" <test@yandex.ru>');
+        $smtp->set('From', '"gks2spb.ru mailer" <mailer@yandex.ru>');
         $smtp->set('To', '<admin@gmail.com>');
-        $smtp->set('Subject', 'Интернет приемная');
+        $smtp->set('Subject', 'Интернет приемная - ' . $_POST['subject']);
         $smtp->set('Content-Type', 'text/html; charset=UTF-8');
 
         if($_FILES['attachment']['tmp_name']) {
@@ -315,119 +312,3 @@ $f3->route('POST /reception', function($f3) {
         }
     }  
 });
-
-
-class house_meter_reading {
-
-    function main ($f3) {
-        $f3->set('content', 'house_meter_reading.htm');
-        $data = require_once '../data/house_meter_reading.php';
-        krsort($data);
-        $f3->set('data', $data);
-        echo \Template::instance()->render('layout.htm');
-    }
-
-    function cold_water ($f3) {
-        if($date = $_GET['date']) {
-
-            $file = "../data/house_meter_reading/cold_water_{$date}.csv";
-
-            if(file_exists($file)) {
-                $handle = fopen($file, 'r');
-                $data = array();
-                while ($line = fgetcsv($handle)) {
-                    $data[] = $line;
-                }
-                fclose($handle);
-            } else {
-                $f3->error(404);
-            }
-            
-        } else {
-            $f3->error(404);
-        }
-
-
-        $f3->set('content', 'house_meter_reading.htm');
-        $f3->set('data', $data);
-        echo \Template::instance()->render('layout.htm');
-    }
-
-    function hot_water ($f3) {
-        if($date = $_GET['date']) {
-
-            $file = "../data/house_meter_reading/hot_water_{$date}.csv";
-
-            if(file_exists($file)) {
-                $handle = fopen($file, 'r');
-                $data = array();
-                while ($line = fgetcsv($handle)) {
-                    $data[] = $line;
-                }
-                fclose($handle);
-            } else {
-                $f3->error(404);
-            }
-            
-        } else {
-            $f3->error(404);
-        }
-
-
-        $f3->set('content', 'house_meter_reading.htm');
-        $f3->set('data', $data);
-        echo \Template::instance()->render('layout.htm');
-    }
-
-    function electric_energy ($f3) {
-        if($date = $_GET['date']) {
-
-            $file = "../data/house_meter_reading/electric_energy_{$date}.csv";
-
-            if(file_exists($file)) {
-                $handle = fopen($file, 'r');
-                $data = array();
-                while ($line = fgetcsv($handle)) {
-                    $data[] = $line;
-                }
-                fclose($handle);
-            } else {
-                $f3->error(404);
-            }
-            
-        } else {
-            $f3->error(404);
-        }
-
-
-        $f3->set('content', 'house_meter_reading.htm');
-        $f3->set('data', $data);
-        echo \Template::instance()->render('layout.htm');
-    }
-
-    function heat_energy ($f3) {
-        if($date = $_GET['date']) {
-
-            $file = "../data/house_meter_reading/heat_energy_{$date}.csv";
-
-            if(file_exists($file)) {
-                $handle = fopen($file, 'r');
-                $data = array();
-                while ($line = fgetcsv($handle)) {
-                    $data[] = $line;
-                }
-                fclose($handle);
-            } else {
-                $f3->error(404);
-            }
-            
-        } else {
-            $f3->error(404);
-        }
-
-
-        $f3->set('content', 'house_meter_reading.htm');
-        $f3->set('data', $data);
-        echo \Template::instance()->render('layout.htm');
-    }
-}
