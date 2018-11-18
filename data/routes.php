@@ -248,15 +248,12 @@ $f3->route('GET /weekly_report', function($f3) {
 
 $f3->route('GET /weekly_report/service_report', function($f3) {
     $data = require_once '../data/weekly_report.php';
+    $date = $_GET['date'];
 
-    if($date = $_GET['date']) {
-        if(array_key_exists($date, $data)) {
-            $f3->set('content', 'weekly_report.htm');
-            $f3->set('data', array_chunk($data[$date], 3));
-            echo \Template::instance()->render('layout.htm');
-        } else {
-            $f3->error(404);
-        }
+    if($date && array_key_exists($date, $data)) {
+        $f3->set('content', 'weekly_report.htm');
+        $f3->set('data', array_chunk($data[$date], 3));
+        echo \Template::instance()->render('layout.htm');
     } else {
         $f3->error(404);
     }
