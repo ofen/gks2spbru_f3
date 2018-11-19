@@ -1,0 +1,20 @@
+<repeat group="{{ @data }}" key="{{ @year }}" value="{{ @year_data }}">
+    <!-- Table -->
+    <table class="table table-hover">
+        <caption>Тех. обслуживания внутридомового газового оборудования<br><span class="label label-primary">{{ @year }}</span></caption>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <repeat group="{{ @year_data }}" key="{{ @filename }}" value="{{ @filelink }}">
+                <tr>
+                    <td class="col-xs-10">{{ @filename }}</td>
+                    <td><a href="{{ @filelink }}" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> Скачать</a></td>
+                </tr>
+            </repeat>
+        </tbody>
+    </table>
+</repeat>

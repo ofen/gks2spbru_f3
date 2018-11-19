@@ -26,7 +26,7 @@ return array(
         'Среднемесячная температура' => '/average_monthly_temperature',
         'Еженедельный отчет' => '/weekly_report',
         'Закупки' => '/purchases',
-        'График тех. обслуживания ВДГО' => '/gas_equipment_service_schedule',
+        'Тех. обслуживания ВДГО' => '/gas_equipment_service',
         'Акты сверки РСО' => '#',
         'Платные услуги' => '/paid_services',
         'Тарифы' => '/utility_rate',

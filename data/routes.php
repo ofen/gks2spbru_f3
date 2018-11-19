@@ -264,9 +264,9 @@ $f3->route('GET /purchases', function($f3) {
     echo \Template::instance()->render('layout.htm');
 });
 
-$f3->route('GET /gas_equipment_service_schedule', function($f3) {
-    $f3->set('content', 'gas_equipment_service_schedule.htm');
-    $f3->set('data', require_once '../data/gas_equipment_service_schedule.php');
+$f3->route('GET /gas_equipment_service', function($f3) {
+    $f3->set('content', 'gas_equipment_service.htm');
+    $f3->set('data', require_once '../data/gas_equipment_service.php');
     echo \Template::instance()->render('layout.htm');
 });
 
