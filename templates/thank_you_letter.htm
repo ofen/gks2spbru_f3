@@ -1,0 +1,13 @@
+<repeat group="{{ $data }}" value="{{ @row }}">
+
+    <div class="row">
+        <repeat group="{{ @row }}" value="{{ @col }}">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail thumbnail-h200">
+                    <a href="{{ @col }}" target="_blank"><img src="{{ @col }}"></a>
+                </div>
+            </div>
+        </repeat>
+    </div>
+
+</repeat>

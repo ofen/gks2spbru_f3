@@ -33,15 +33,15 @@
     <!-- Service report -->
     <p><a href="/weekly_report" class="btn btn-primary">Вернуться</a></p>
 
-    <repeat group="{{ $data }}" value="{{ @rows }}">
+    <repeat group="{{ $data }}" value="{{ @row }}">
         <div class="row">
-            <repeat group="{{ @rows }}" value="{{ @row }}">
+            <repeat group="{{ @row }}" value="{{ @col }}">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail thumbnail-h200">
-                        <a href="/doc/weekly_report/{{ @row[0] }}" target="_blank"><img src="/doc/weekly_report/{{ @row[0] }}"></a>
+                        <a href="/doc/weekly_report/{{ @col[0] }}" target="_blank"><img src="/doc/weekly_report/{{ @col[0] }}"></a>
                         <div class="caption">
-                            <h4>{{ @row[1] }}</h4>
-                            <p>{{ @row[2] }}</p>
+                            <h4>{{ @col[1] }}</h4>
+                            <p>{{ @col[2] }}</p>
                         </div>
                     </div>
                 </div>

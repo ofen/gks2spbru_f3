@@ -85,15 +85,30 @@ $f3->route('GET /law', function($f3) {
             $data[$dir] = $files;
         }
     }
+
     krsort($data);
-    // header('Content-Type: application/json; charset=utf-8');
-    // echo json_encode($data);
+
     $f3->set('data', $data);
     $f3->set('content', 'law.htm');
     echo \Template::instance()->render('layout.htm');
 });
 
 $f3->route('GET /thank_you_letter', function($f3) {
+    $path = './doc/thank_you_letter/';
+
+    $data = array();
+    $dirs = array_diff(scandir($path), array('.', '..'));
+    foreach ($dirs as $dir) {
+        if(is_dir($path . $dir)) {
+            $files = glob($path . $dir . '/*.jpg', GLOB_NOSORT);
+            asort($files, SORT_NATURAL);
+            $data[$dir] = $files;
+        }
+    }
+
+    krsort($data);
+
+    $f3->set('data', $data);
     $f3->set('content', 'thank_you_letter.htm');
     echo \Template::instance()->render('layout.htm');
 });
