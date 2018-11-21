@@ -112,12 +112,22 @@ $f3->route('GET /get_thumb', function($f3) {
 
     $image = realpath("doc/thank_you_letter/${filename}");
 
-    $dst_width = 250;
-    $dst_height = 250;
+    $dst_width = 300;
+    $dst_height = 300;
+
+    list($width, $height) = getimagesize($image);
+
+    $ratio_orig = $width/$height;
+
+    if ($dst_width/$dst_height > $ratio_orig) {
+       $dst_width = $dst_height*$ratio_orig;
+    } else {
+       $dst_height = $dst_width/$ratio_orig;
+    }
 
     $dst = imagecreatetruecolor($dst_width, $dst_height);
     $src = imagecreatefromjpeg($image);
-    list($width, $height) = getimagesize($image);
+    
     imagecopyresampled($dst, $src, 0, 0, 0, 0, $dst_width, $dst_height, $width, $height);
 
     echo imagejpeg($dst, null, 100);
