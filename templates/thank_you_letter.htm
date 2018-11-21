@@ -1,12 +1,14 @@
-<repeat group="{{ $data }}" value="{{ @row }}">
+<repeat group="{{ $data }}" value="{{ @chunk }}">
 
     <div class="row">
-        <repeat group="{{ @row }}" value="{{ @col }}">
+        <repeat group="{{ @chunk }}" value="{{ @item }}">
+
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail thumbnail-h200">
-                    <a href="{{ @col }}" target="_blank"><img src="{{ @col }}"></a>
+                    <a href="{{ @item }}" target="_blank"><img src="{{ '/get_thumb?image=' . basename(@item) }}"></a>
                 </div>
             </div>
+
         </repeat>
     </div>
 

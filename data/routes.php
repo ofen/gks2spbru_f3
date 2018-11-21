@@ -94,23 +94,33 @@ $f3->route('GET /law', function($f3) {
 });
 
 $f3->route('GET /thank_you_letter', function($f3) {
-    $path = './doc/thank_you_letter/';
+    $path = 'doc/thank_you_letter';
 
-    $data = array();
-    $dirs = array_diff(scandir($path), array('.', '..'));
-    foreach ($dirs as $dir) {
-        if(is_dir($path . $dir)) {
-            $files = glob($path . $dir . '/*.jpg', GLOB_NOSORT);
-            asort($files, SORT_NATURAL);
-            $data[$dir] = $files;
-        }
-    }
+    $data = glob($path . '/*.jpg', GLOB_NOSORT);
+    asort($data, SORT_NATURAL);
 
-    krsort($data);
-
-    $f3->set('data', $data);
+    $f3->set('data', array_chunk($data, 3));
     $f3->set('content', 'thank_you_letter.htm');
     echo \Template::instance()->render('layout.htm');
+});
+
+$f3->route('GET /get_thumb', function($f3) {
+    $filename = $_GET['image'];
+    if(!$filename) {
+        $f3->error(404);
+    }
+
+    $image = realpath("doc/thank_you_letter/${filename}");
+
+    $dst_width = 250;
+    $dst_height = 250;
+
+    $dst = imagecreatetruecolor($dst_width, $dst_height);
+    $src = imagecreatefromjpeg($image);
+    list($width, $height) = getimagesize($image);
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $dst_width, $dst_height, $width, $height);
+
+    echo imagejpeg($dst, null, 100);
 });
 
 $f3->route('GET /press', function($f3) {
