@@ -9,12 +9,12 @@ $f3->route('GET /', function($f3) {
 $f3->route('GET /news', function($f3) {
     $files = glob('../data/news/*.htm', GLOB_NOSORT);
     rsort($files, SORT_NATURAL);
-    $files = array_chunk($files, 5);
+    $files = array_chunk($files, 3);
 
     $current_page = 0;
     $data = array();
 
-    if($_GET['page']) {
+    if(isset($_GET['page'])) {
         $current_page = $_GET['page'];
 
         foreach($files[$current_page] as $file) {
@@ -136,7 +136,7 @@ $f3->route('GET /get_thumb', function($f3) {
 $f3->route('GET /press', function($f3) {
     $files = glob('../data/press/*.htm', GLOB_NOSORT);
     rsort($files, SORT_NATURAL);
-    $files = array_chunk($files, 5);
+    $files = array_chunk($files, 3);
 
     $current_page = 0;
     $data = array();

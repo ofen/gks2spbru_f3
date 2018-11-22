@@ -45,7 +45,36 @@ $(document).ready(function() {
         });
     });
 
+    
     var current_page = 0;
+    // $(window).on("scroll", function() {
+        
+        
+    //     if($(window).scrollTop() == $(document).height() - $(window).height()) {
+    //         $.get({
+    //             url: '#',
+    //             data: {page: current_page},
+    //             success: function(data) {
+    //                 console.log(data);
+                    
+    //                 data.result.forEach(function(result) {
+    //                     var item = `<div class="panel panel-default">
+    //                                     <div class="panel-body">
+    //                                         ${result}
+    //                                     </div>
+    //                                 </div>`;
+    //                     $('.content').append($(item).hide().fadeIn(500));
+    //                 });
+
+    //                 current_page += 1;
+
+    //                 if (current_page == data.lenght - 1) {
+    //                     $(window).unbind('scroll');
+    //                 }
+    //             }
+    //         });
+    //     }
+    // });
 
     $('#load_more').on('click', function() {
         var button = $(this);
@@ -70,5 +99,27 @@ $(document).ready(function() {
                 }
             }
         });
+    });
+
+    var options = {
+        rootMargin: '0px',
+        trashold: 0
+    };
+
+    var callback = function(entries, observer) {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                preloadImage(entry.target);
+                observer.unobserver(entry.target);
+            }
+        });
+    };
+
+    var observer = new IntersectionObserver(callback, options)
+
+    var imgs = document.querySelectorAll('[data-src]');
+
+    imgs.forEach(img => {
+        observer.observe(img);
     });
 });
