@@ -95,8 +95,14 @@ $f3->route('GET /law', function($f3) {
 
 $f3->route('GET /thank_you_letter', function($f3) {
     $path = 'doc/thank_you_letter';
+    $data = array();
+    $years = range(2012, 2018);
 
-    $data = glob($path . '/*.jpg', GLOB_NOSORT);
+    for($years as $year) {
+        $data = glob("${path}/*_${year}.jpg", GLOB_NOSORT);
+    }
+
+    
     asort($data, SORT_NATURAL);
 
     $f3->set('data', array_chunk($data, 3));
