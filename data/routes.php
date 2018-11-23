@@ -96,16 +96,17 @@ $f3->route('GET /law', function($f3) {
 $f3->route('GET /thank_you_letter', function($f3) {
     $path = 'doc/thank_you_letter';
     $data = array();
-    $years = range(2012, 2018);
+    $years = array_map('strval', range(2012, 2018));
 
-    for($years as $year) {
-        $data = glob("${path}/*_${year}.jpg", GLOB_NOSORT);
+    foreach($years as $year) {
+        $year_data = glob("${path}/*_${year}.jpg", GLOB_NOSORT);
+        $data[$year] = array_chunk($year_data, 3);
     }
 
     
-    asort($data, SORT_NATURAL);
+    krsort($data, SORT_NATURAL);
 
-    $f3->set('data', array_chunk($data, 3));
+    $f3->set('data', $data);
     $f3->set('content', 'thank_you_letter.htm');
     echo \Template::instance()->render('layout.htm');
 });

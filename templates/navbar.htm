@@ -13,24 +13,35 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+
                 <repeat group="{{ @navbar }}" key="{{ @key }}" value="{{ @value }}">
+
                     <check if="{{ is_array(@value) }}">
+
                         <true>
-                            <!-- Item-->
+                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ @key }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
+
                                     <repeat group="{{ @value }}" key="{{ @submenu }}" value="{{ @sublink }}">
+                                        <!-- Item-->
                                         <li><a href="{{ @sublink }}">{{ @submenu }}</a></li>
+
                                     </repeat>
+
                                 </ul>
                             </li>
                         </true>
+                        
                         <false>
-                        <!-- Item-->
+                            <!-- Item-->
                             <li><a href="{{ @value }}">{{ @key }}</a></li>
+
                         </false>
+
                     </check>
+
                 </repeat>
             </ul>
         </div>

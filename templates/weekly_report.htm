@@ -33,9 +33,14 @@
     <!-- Service report -->
     <p><a href="/weekly_report" class="btn btn-primary">Вернуться</a></p>
 
+    <p class="text-muted">Еженедельный отчет<br><span class="label label-primary">{{ @GET['date'] }}</span></p class="text-muted">
+
     <repeat group="{{ $data }}" value="{{ @row }}">
+
         <div class="row">
+
             <repeat group="{{ @row }}" value="{{ @col }}">
+
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail thumbnail-h200">
                         <a href="/doc/weekly_report/{{ @col[0] }}" target="_blank"><img data-src="/doc/weekly_report/{{ @col[0] }}"></a>
@@ -45,8 +50,11 @@
                         </div>
                     </div>
                 </div>
+
             </repeat>
+
         </div>
+
     </repeat>
 
 </check>

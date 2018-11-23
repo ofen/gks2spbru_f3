@@ -1,15 +1,37 @@
-<repeat group="{{ $data }}" value="{{ @chunk }}">
+<repeat group="{{ $data }}" key="{{ @year }}" value="{{ @year_chunks }}">
 
-    <div class="row">
-        <repeat group="{{ @chunk }}" value="{{ @item }}">
+    <p class="text-muted">Нас благодарят<br><span class="label label-primary">{{ @year }}</span></p class="text-muted">
 
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail thumbnail-h200">
-                    <a href="{{ @item }}" target="_blank"><img data-src="{{ @item }}"></a>
+    <check if="{{ @year_chunks }}">
+
+        <true>
+
+            <repeat group="{{ @year_chunks }}" value="{{ @chunk }}">
+
+                <div class="row">
+
+                    <repeat group="{{ @chunk }}" value="{{ @item }}">
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail thumbnail-h200">
+                                <a href="{{ @item }}" target="_blank"><img data-src="{{ @item }}"></a>
+                            </div>
+                        </div>
+
+                    </repeat>
+
                 </div>
-            </div>
 
-        </repeat>
-    </div>
+            </repeat>
+
+        </true>
+
+        <false>
+
+            <p>Нет записей</p>
+
+        </false>
+
+    </check>
 
 </repeat>

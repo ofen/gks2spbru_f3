@@ -6,7 +6,7 @@
             <div class="panel-body">
                 <div class="media">
                     <div class="media-left">
-                        <img class="media-object" data-src="{{ @employee['photo'] != '#' ? @employee['photo'] : 'holder.js/150x150' }}" alt="photo" style="width: 150px;">
+                        <img class="media-object" data-src="{{ @employee['photo'] }}" alt="150x150" style="width: 150px; height: 150px">
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">{{ @employee['fullname'] }}<br>
