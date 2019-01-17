@@ -1,2 +1,1 @@
-# Simple company website
-Simple company website using PHP, Fat-Free Framework, Bootstrap 3 and jQuery
+Simple website for [https://gks2spb.ru](https://gks2spb.ru) based on Bootstrap and F3 (Fat-Free Framework).
